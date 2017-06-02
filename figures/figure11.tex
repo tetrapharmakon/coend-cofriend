@@ -1,0 +1,17 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh={4em}{24em}]{
+\obj (DJKoLo):\D(J\times K^\oo\times L^\oo); & \obj (DJtLo):\D(J\times \textsc{Tw}(K)\times L^\oo); \\
+\obj (DJKot):\D(J\times K^\oo\times \textsc{Tw}(L)); & \obj (DJLo):\D(J\times L^\oo); \\
+\obj (DJKo):\D(J\times K^\oo); & \obj (DJtL):\D(J\times \textsc{Tw}(L));\\
+\obj (DJtK):\D(J\times \textsc{Tw}(K)); & \obj (DJ):\D(J);\\
+};
+\mor DJKoLo \Sigma_K^*:-> DJtLo {\p^K_!}:-> DJLo \Sigma_L^*:-> DJtL {\p^L_!}:-> DJ;
+\mor[swap] * \Sigma_L^*:-> DJKot \p^L_!:-> DJKo \Sigma_K^*:-> DJtK \p^K_!:-> *;
+\mor * (S):\Sigma_{K\times L}:-> *;
+\mor[swap,/kD/chop=.3|*|.3] DJtLo \alpha:2-> S \beta:2-> DJtK;
+\end{tikzpicture}
+\end{document}

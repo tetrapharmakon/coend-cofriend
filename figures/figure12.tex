@@ -1,0 +1,13 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document} 
+\begin{kD}
+\lattice[mesh={4em}{9em}]{
+	\obj u_!\dashv u^*\dashv u_*\colon; & \obj \D(J); & \obj \D(I); \\
+};
+\mor {D J} u^*:-> {D I};
+\mor[shift=8pt,swap] {D I} u_!:-> {D J};
+\mor[shift=-8pt] {D I} u_*:-> {D J};
+\end{kD}
+\end{document}

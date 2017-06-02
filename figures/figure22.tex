@@ -1,0 +1,11 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{kD}
+\foreach \label [count=\n from 1] in {$((wx)y)z$,$(w(xy))z$,$w((xy)z)$,$w(x(yz))$,$(wx)(yz)$}
+    \node (\n) at (72*\n+90:2) {\label};
+\mor 1 -> 2 -> 3 -> 4;
+\mor * -> 5 -> *;
+\end{kD}
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 16
+\begin{kD}
+\lattice[goldcomb=6em]{
+\obj B; & \\
+\obj S(a'',a''); & \obj S(a,a); \\
+\obj S(a',a'); & \\
+\obj S(a',a''); & \obj S(a,a'); \\
+\obj S(a,a''); & \\
+};
+\mor[swap] B \omega_{a''}:-> Sa''a'' S(f',a''):-> Sa'a'' S(f,a''):-> Saa'';
+\mor * \omega_a:-> Saa S(a,f):-> Saa' S(a,f'):-> *;
+\mor * \omega_{a'}:-> Sa'a' -> Sa'a'';
+\mor Sa'a' -> Saa';
+\mor[/kD/chop=.3|*|.3] Sa'a' \omega_{f'}:2-> Sa''a'';
+\mor[/kD/chop=.3|*|.3] Saa \omega_f:2-> Sa'a';
+\mor[/kD/chop=.3|*|.3, ] Sa'a'' 2- Saa';
+\begin{scope}[xshift=18em]
+\lattice[goldcomb=6em]{
+\obj B; & \\
+\obj S(a'',a''); & \obj S(a,a); \\
+& \\
+\obj S(a',a''); & \obj S(a,a'); \\
+\obj S(a,a''); & \\
+};
+\mor[swap] B \omega_{a''}:-> Sa''a'' S(f',a''):-> Sa'a'' S(f,a''):-> Saa'';
+\mor * \omega_a:-> Saa S(a,f):-> Saa' S(a,f'):-> *;
+\mor Sa''a'' -> Saa'';
+\mor[swap] Saa -> Saa'';
+\mor[/kD/chop=.3|*|.3] Saa \omega_{f'f}:2-> Sa''a'';
+\end{scope}
+\end{kD}
+\end{document}

@@ -1,0 +1,70 @@
+\section{Promonoidal categories}\label{sec:promono}
+A \emph{promonoidal category} is what we obtain taking the definition of a monoidal category and we replace every occurrence of the word \emph{functor} with the word \emph{profunctor} (here we refrain to adopt the name ``relator'' since \emph{rel-monoidal} category is a terrible name). 
+
+More precisely, we define
+\begin{definition}[Promonoidal structure on a category]
+A \emph{promonoidal category} consists of a category $\C$ which is a monoid object in $\Dist$, the category of profunctors defined in \refbf{profdef}. 
+
+A monoid object in $\Dist$ is a category $\C$, endowed with a bi-profunctor $P\colon \C\times \C \pto \C$ (the monoidal multiplication) and a profunctor $J\colon 1\pto \C$ (the monoidal unit), such that the following two diagrams are filled by the indicated 2-cells (respectively, the \emph{associator} and \emph{left/right unitor}) in $\Dist$:
+\[
+\xymatrix@C=2cm{
+\C \times \C \times \C  \ar[d]|-@{|}_{\hom\times P}\ar[r]|-@{|}^{P\times\hom}& \C \times\C \ar[d]|-@{|}^{P}\\
+\C \times \C  \ar[r]|-@{|}_{P}& \C 
+\ar@{=>}(25,-4);(10,-9)_{\alpha}
+}\qquad 
+\xymatrix@C=2cm{
+\C  \ar@{=}[dr]_\hom\ar[r]|-@{|}^{J\times \hom} & \C \times \C \ar[d]|-@{|}^{P} & \C  \ar[l]|-@{|}_{\hom\times J} \ar@{=}[dl]^\hom \\
+& \C  & 
+\ar@{=>}(23,-3);(20,-7)_{\rho}
+\ar@{=>}(33,-3);(36,-7)^{\lambda}
+}
+\]
+These data form what is called a \emph{promonoidal structure} on the category $\C$, denoted $\mathfrak{P} = (P, J, \alpha, \rho, \lambda)$.
+\end{definition}
+\begin{remark}
+Coend calculus allows us to turn the conditions
+\begin{gather}
+P\diamond (P\times\hom) \cong P\diamond (\hom\times P)\\
+P\diamond (J\times\hom) \cong\hom \cong P\diamond (\hom\times J)
+\end{gather}
+giving the associativity and unit of the promonoidal structure into explicit relations involving the functors $P\colon \C^\text{op}\times\C^\text{op}\times \C\to \Sets$ and $J\colon \C\to \Sets$;\footnote{Obvoiusly, there is nothing special about sets here. The whole discussion performed in the setting of $\V$-profunctors leads to the definition of a $\V$-promonoidal structure.} we have the following rules, written in Einstein notation:
+\begin{itemize}
+\item The associativity condition for $P\colon \C\times\C\pto \C$ amounts to saying that the following boxed sets, obtained as coends, are naturally isomorphic (via a natural transformation $\alpha_{abc;d}$ having four components, three contravariant and one covariant).
+\begin{align*}
+\textstyle (P\diamond (\hom\times P))_{abc;d} & =\textstyle \int^{xy} P_d^{xy}H_a^x P_y^{bc}\\
+&\textstyle \cong \int^yz\big(\int^x P_d^{xy}H_a^x \big) P_y^{bc}\\
+&\cong \boxed{\textstyle \int^z P_d^{ay}P_y^{bc}}\\
+(P\diamond(P\times\hom))_{abc;d} &\cong \textstyle \int^{xy} P_d^{xy} H_y^c P_x^{ab}\\
+&\cong \boxed{\textstyle \int^z P_x^{ab} P_d^{xc}}.
+\end{align*}
+\item The left unit axiom is equivalent to the isomoprhism
+\[
+(a,b) \mapsto \textstyle \int^{yz} J_z H^a_y P^{yz}_b \int^z J_z\big( \int^y H^a_y P^{yz}_b \big) \cong \int^z J_z P^{az}_b \cong \hom(a,b).
+\]
+\end{itemize}
+\end{remark}
+The most interesting feature of promonoidal structure in categories is that they correspond bijectively with monoidal structures on the category of functors $[\C, \Sets]$, heavily generalizing the Day construction of Definition \refbf{day}.
+\begin{proposition}\label{promonoshit}
+Let $\mathfrak P = (P, J,\alpha, \rho,\lambda)$ be a promonoidal structure on the category $\C$; then we can define a $\mathfrak P$-\emph{convolution} on the category $[\C,\Sets]$ (or more generally, on the category $[\C,\V]$), via
+\begin{gather}
+[F\ast_{\mathfrak P} G]_c = \int^{ab} P(a,b;c)\times Fa\times Gb\\
+J_{\mathfrak P} = J
+\end{gather}
+and this turns out to be a monoidal structure on $[\C,\Sets]$. We denote the monoidal structure $([\C,\Sets], \ast_{\mathfrak P}, J_{\mathfrak P})$ shortly as $[\C,\Sets]_{\mathfrak P}$.
+\end{proposition}
+\begin{exercise}\label{ex1}
+Prove the above statement using associativity and unitality for $\mathfrak P$.
+\end{exercise}
+\begin{exercise}[Day and Cauchy convolutions]\label{ex2}
+Outline the promonoidal structure $\mathfrak P$ giving the Day convolution described in Definition \refbf{day}. If $\C$ is any small category, we define $P(a,b;c) = \C(a,c)\times \C(b,c)$ and $J$ to be the terminal functor $\C\to\Sets$. Outline the convolution product on $[\C,\Sets]$, called the \emph{Cauchy convolution}, obtained from this promonoidal structure.
+\end{exercise}
+\begin{definition}
+A functor $\Phi\colon [\A, \Sets]_{\mathfrak P} \to [\B, \Sets]_{\mathfrak Q}$ is said to \emph{preserve the convolution product} if the obvious isomorphisms hold in $[\B, \Sets]_{\mathfrak Q}$:
+\begin{itemize}
+\item $\Phi(F\ast_{\mathfrak{P}} G) \cong \Phi(F)\ast_{\mathfrak Q}\Phi(G)$;
+\item $\Phi(J_{\mathfrak P}) = J_{\mathfrak Q}$.
+\end{itemize}
+\end{definition}
+\begin{remark}
+It is observed in \cite{imkelly} that for a monoidal $\A$ the category of presheaves $[\A^\opp,\V]$ endowed with the convolution monoidal structure is the \emph{free monoidal cocompletion} of $\A$, having in $\cate{Mon}$ (monoidal categories, monoidal functors and monoidal natural transformations) the same universal property that $[\A^\opp,\V]$ has in $\Cat$.
+\end{remark}

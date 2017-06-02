@@ -1,0 +1,86 @@
+\def\pgfmathformatvector#1#2#3%
+  {\def\pgfmathresult{#1,#2,#3}}
+
+\def\pgfmathformatpoint#1#2%
+  {\def\pgfmathresult{#1,#2}}
+
+\def\pgfmathquaternionimaginarypart#1%
+  {\pgfmathparse{#1[1],#1[2],#1[3]}%
+   \expandafter\pgfmathformatvector\pgfmathresult}
+
+\def\pgfmathfliphand#1%
+  {\pgfmathparse{#1[0],#1[1],#1[2],-#1[3]}%
+   \expandafter\pgfmathformatvector\pgfmathresult}
+
+\def\pgfmathsubtractvectors#1#2%
+  {\pgfmathparse{#1[0]-#2[0],#1[1]-#2[1],#1[2]-#2[2]}%
+   \expandafter\pgfmathformatvector\pgfmathresult}
+
+% #################################################
+
+
+
+\def\pgfmathformatquaternion#1#2#3#4%
+  {\def\pgfmathresult{#1,#2,#3,#4}}
+
+\def\pgfmathmultiplyquaternions#1#2%
+  {\pgfmathparse{#1[0]*#2[0]-#1[1]*#2[1]-#1[2]*#2[2]-#1[3]*#2[3],
+                 #1[0]*#2[1]+#1[1]*#2[0]+#1[2]*#2[3]-#1[3]*#2[2],
+                 #1[0]*#2[2]-#1[1]*#2[3]+#1[2]*#2[0]+#1[3]*#2[1],
+                 #1[0]*#2[3]+#1[1]*#2[2]-#1[2]*#2[1]-#1[3]*#2[0]}
+   \expandafter\pgfmathformatquaternion\pgfmathresult}
+
+\def\pgfmathinvertunitquaternion#1%
+  {\pgfmathparse{{#1[0],-#1[1],-#1[2],-#1[3]}}}
+
+\def\pgfmathperspectiveprojection#1#2#3%
+  {\pgfmathparse{0.5*#3[0]*cot(#2)*#1[1]/#1[3],0.5*#3[1]*cot(#2)*#1[2]/#1[3]}%
+   \expandafter\pgfmathformatpoint\pgfmathresult}
+
+\def\pgfmathconjugatebyunitquaternion#1#2%
+  {\pgfmathinvertunitquaternion{#2}%
+   \pgfmathmultiplyquaternions{#1}{\pgfmathresult}%
+   \pgfmathmultiplyquaternions{#2}{\pgfmathresult}}
+
+\def\pgfmathunitquaternionfromangleandversor#1#2%
+% should be normalized to counter finite precision
+% BEWARE OF - SIGN FOR HANDEDNESS CONVERSION
+  {\pgfmathparse{cos(#1/2),#2[0]*sin(#1/2),#2[1]*sin(#1/2),-#2[2]*sin(#1/2)}%
+   \expandafter\pgfmathformatquaternion\pgfmathresult}
+
+\usetikzlibrary{calc}
+
+
+\pgfkeys{
+  /3d/camera/.cd,
+    field of view/.estore in=\camerafov, field of view=15,
+    viewport/size/.estore in=\cameraviewportsize, viewport/size={400pt,300pt},
+    viewport/.code={ \path [#1,scale=0.5]
+      ($-1*(\cameraviewportsize)$) rectangle (\cameraviewportsize);},
+    position/.estore in=\cameraposition, position={15,15,-20},
+    quaternion/.estore in=\cameraquaternion, quaternion={1,0,0,0},
+    quaternion/apply/.code={
+      \pgfmathmultiplyquaternions{{#1}}{{\cameraquaternion}}
+      \pgfqkeys{/3d/camera}{quaternion=\pgfmathresult}},
+    rotate/.code args={by #1 around #2}{
+      \pgfmathunitquaternionfromangleandversor{#1}{{#2}}
+      \pgfqkeys{/3d/camera}{quaternion/apply=\pgfmathresult}},
+    rotate/x/.style={rotate=by #1 around {1,0,0}},
+    rotate/y/.style={rotate=by #1 around {0,1,0}},
+    rotate/z/.style={rotate=by #1 around {0,0,1}},
+  /3d/input/.code={
+    \pgfmathsubtractvectors{{#1}}{{\cameraposition}}
+    \pgfmathmultiplyquaternions{{\cameraquaternion}}{{0,\pgfmathresult}}
+    \pgfmathperspectiveprojection{{\pgfmathresult}}{\camerafov}{{\cameraviewportsize}}
+    \pgfqkeys{/3d}{output/.expand once=\pgfmathresult}},
+  /3d/output/.initial={0,0,0},
+}
+
+\tikzdeclarecoordinatesystem{3d}%
+{%
+\pgfqkeys{/3d}{input={#1}}
+\pgfqkeys{/3d}{output/.get=\out}
+\pgfmathparse{\out}
+\expandafter\pgfpoint\pgfmathresult
+}
+

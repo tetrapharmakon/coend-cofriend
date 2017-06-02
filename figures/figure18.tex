@@ -1,0 +1,30 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 18
+\begin{kD}
+\lattice[comb=6em]{
+\obj b; & \obj S(a,a); \\
+\obj S(a',a'); & \obj S(a,a');\\
+};
+\obj at=($(Saa')!2!(b)$):b';
+\mor b' (A):\sigma_a:r> Saa S(a,f):-> Saa';
+\mor[swap] * (Z):\sigma_{a'}:L> Sa'a' S(f,a'):-> *;
+\mor * x:-> b;
+\mor b \omega_a:-> Saa;
+\mor[swap] * \omega_{a'}:-> Sa'a';
+\mor[/kD/chop=.2|*|.2] Saa \omega_f:2-> Sa'a';
+\mor[/kD/chop=.4|*|.4] A 2- b 2- Z;
+\begin{scope}[shift={(18em,0)}]
+\lattice[comb=6em]{
+\obj (bR):; & \obj S(a,a); \\
+\obj S(a',a'); & \obj S(a,a');\\
+};
+\obj at=($(Saa')!2!(bR)$):b';
+\mor b' (A):\sigma_a:r> Saa S(a,f):-> Saa';
+\mor[swap] * (Z):\sigma_{a'}:L> Sa'a' S(f,a'):-> *;
+\mor[/kD/chop=.2|*|.2,shift=3em] Saa \sigma_f:2-> Sa'a';
+\end{scope}
+\end{kD}
+\end{document}

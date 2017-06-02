@@ -1,0 +1,6 @@
+# cd figures
+# ./MAKEFIG
+# cd ..
+latexmk -c
+latexmk -pdf ends
+latexmk -c

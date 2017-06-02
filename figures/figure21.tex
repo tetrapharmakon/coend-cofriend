@@ -1,0 +1,20 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\matrix (m) [
+  matrix of math nodes,
+  every node/.append style={
+    minimum height=36pt,
+    inner sep=8pt,
+    execute at begin node=\strut\displaystyle,
+  },
+]{
+(x,z)\in S\circ R & \iff & \exists y\in Y & \big((x,y)\in R\big) & \land & \big((y,z)\in S\big) \\
+(\textsc{s}\diamond \textsc{r})(x,z) & = & \smash{\int^{y\in\cate Y}} & \textsc{r}(x,y) & \times & \textsc{s}(y,z) \\
+};
+\foreach \i in {1,...,6}
+  \node[inner sep=-4pt,draw,dashed,gray,fit=(m-1-\i)(m-2-\i)]{};
+\end{tikzpicture}
+\end{document}

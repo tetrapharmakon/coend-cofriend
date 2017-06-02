@@ -1,0 +1,368 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{ABLR02}
+
+\bibitem[ABLR02]{adamek2002classification}
+J.~Ad{\'a}mek, F.~Borceux, S.~Lack, and J.~Rosick{\`y}, \emph{A classification
+  of accessible categories}, Theory Appl. Categ. (2002), 7--30.
+
+\bibitem[Ada78]{adams1978infinite}
+John~Frank Adams, \emph{Infinite loop spaces, volume 90 of annals of
+  mathematics studies}, Princeton University Press, Princeton, NJ \textbf{129}
+  (1978), 247.
+
+\bibitem[B{\'e}ner]{benabou2000distributors}
+Jean B{\'e}nabou, \emph{Distributors at work}, 2000. Lecture notes written by
+  Thomas Streicher.
+
+\bibitem[BK72]{MR0365573}
+A.~K. Bousfield and D.~M. Kan, \emph{Homotopy limits, completions and
+  localizations}, Lecture Notes in Mathematics, Vol. 304, Springer-Verlag,
+  Berlin-New York, 1972. \MR{0365573}
+
+\bibitem[Bor94a]{Bor1}
+F.~Borceux, \emph{Handbook of categorical algebra. 1}, Encyclopedia of
+  Mathematics and its Applications, vol.~50, Cambridge University Press,
+  Cambridge, 1994, Basic category theory. \MR{1291599 (96g:18001a)}
+
+\bibitem[Bor94b]{Bor2}
+\bysame, \emph{Handbook of categorical algebra. 2}, Encyclopedia of Mathematics
+  and its Applications, vol.~51, Cambridge University Press, Cambridge, 1994,
+  Categories and structures. \MR{1313497 (96g:18001b)}
+
+\bibitem[Boz75]{bozapalides1975fins}
+Sym{\'e}on Bozapalides, \emph{Les fins cart{\'e}siennes}, C.R. Acad. Sci. Paris
+  A \textbf{281} (1975), 597--600.
+
+\bibitem[Boz77]{bozapalides1977finsgen}
+\bysame, \emph{Les fins cart{\'e}siennes g{\'e}n{\'e}ralis{\'e}es}, Archivum
+  Mathematicum \textbf{13} (1977), no.~2, 75--87.
+
+\bibitem[Boz80]{bozapalides1980some}
+\bysame, \emph{Some remarks on lax-presheaves}, Illinois Journal of Mathematics
+  \textbf{24} (1980), no.~4, 676--680.
+
+\bibitem[BZFN10]{ben2010integral}
+D.~Ben-Zvi, J.~Francis, and D.~Nadler, \emph{Integral transforms and
+  {D}rinfel'd centers in derived algebraic geometry}, J. Amer. Math. Soc.
+  \textbf{23} (2010), no.~4, 909--966.
+
+\bibitem[Car]{Carche}
+David Carchedi, \emph{Topos theory course}.
+
+\bibitem[CKS03]{cockett2003morphisms}
+JRB Cockett, J~Koslowski, and RAG Seely, \emph{Morphisms and modules for
+  poly-bicategories}, Theory and Applications of Categories \textbf{11} (2003),
+  no.~2, 15--74.
+
+\bibitem[CP90]{MR1080880}
+J.-M. Cordier and T.~Porter, \emph{Fibrant diagrams, rectifications and a
+  construction of {L}oday}, J. Pure Appl. Algebra \textbf{67} (1990), no.~2,
+  111--124. \MR{1080880}
+
+\bibitem[CP97]{cordier1997homotopy}
+Jean-Marc Cordier and Timothy Porter, \emph{Homotopy coherent category theory},
+  Transactions of the American Mathematical Society \textbf{349} (1997), no.~1,
+  1--54.
+
+\bibitem[CP08]{Cordier2008}
+J.M. Cordier and T.~Porter, \emph{Shape theory: Categorical methods of
+  approximation}, Dover books on mathematics, Dover Publications, 2008.
+
+\bibitem[Day74]{day1974embedding}
+B.J. Day, \emph{An embedding theorem for closed categories}, Category {S}eminar
+  ({P}roc. {S}em., {S}ydney, 1972/1973), Springer, Berlin, 1974, pp.~55--64.
+  Lecture Notes in Math., Vol. 420. \MR{0364396 (51 \#650)}
+
+\bibitem[Day77]{MR0470024}
+B.~J. Day, \emph{Note on compact closed categories}, J. Austral. Math. Soc.
+  Ser. A \textbf{24} (1977), no.~3, 309--311. \MR{0470024}
+
+\bibitem[Day11]{day2011monoidal}
+B.J. Day, \emph{Monoidal functor categories and graphic {F}ourier transforms},
+  Theory Appl. Categ. \textbf{25} (2011), No. 5, 118--141. \MR{2805747
+  (2012h:18007)}
+
+\bibitem[DF78]{DrorFar98}
+W.~Dwyer and E.~Dror Farjoun, \emph{Homotopy coends}, Online preprint:
+  \url{http://www.ma.huji.ac.il/~landau/preprint98/preprint3.ps} (1997/8).
+
+\bibitem[DM96]{de1996analisi}
+G.~De~Marco, \emph{Analisi 1. primo corso di analisi matematica. teoria ed
+  esercizi}, Collana di matematica. Testi e manuali, Zanichelli, 1996.
+
+\bibitem[Dub70]{dubuc1970kan}
+Eduardo~J. Dubuc, \emph{Kan extensions in enriched category theory}, Lecture
+  Notes in Mathematics, Vol. 145, Springer-Verlag, Berlin-New York, 1970.
+  \MR{0280560 (43 \#6280)}
+
+\bibitem[EK66]{eilenberg1966generalization}
+Samuel Eilenberg and G.M. Kelly, \emph{A generalization of the functorial
+  calculus}, J. Algebra \textbf{3} (1966), 366--375. \MR{0190204 (32 \#7618)}
+
+\bibitem[Elm83]{Elmendorf1983}
+A.~D. Elmendorf, \emph{Systems of fixed point sets}, Trans. Amer. Math. Soc.
+  \textbf{277} (1983), no.~1, 275--284. \MR{690052}
+
+\bibitem[EM45]{gtone}
+Samuel Eilenberg and Saunders MacLane, \emph{General theory of natural
+  equivalences}, Trans. Amer. Math. Soc. \textbf{58} (1945), 231--294.
+  \MR{0013131}
+
+\bibitem[EP08]{ehlers2008ordinal}
+Philip~John Ehlers and Timothy Porter, \emph{Ordinal subdivision and special
+  pasting in quasicategories}, Advances in Mathematics \textbf{217} (2008),
+  no.~2, 489--518.
+
+\bibitem[Gam10]{Gamb}
+Nicola Gambino, \emph{Weighted limits in simplicial homotopy theory}, J. Pure
+  Appl. Algebra \textbf{214} (2010), no.~7, 1193--1199. \MR{2586997
+  (2011e:18030)}
+
+\bibitem[Gen15]{nashphd}
+F.~Genovese, \emph{Quasi-functors as lifts of fourier-mukai functors: the
+  uniqueness problem}, Ph.D. thesis, Università degli studi di Pavia, 2015.
+
+\bibitem[GHN15]{gepner2015lax}
+David Gepner, Rune Haugseng, and Thomas Nikolaus, \emph{Lax colimits and free
+  fibrations in $\infty$-categories}, \arXivPreprint{1501.02161} (2015).
+
+\bibitem[GJ09]{GoJ}
+P.G. Goerss and J.F. Jardine, \emph{Simplicial homotopy theory}, Modern
+  Birkh\"auser Classics, Birkh\"auser Verlag, Basel, 2009, Reprint of the 1999
+  edition [MR1711612]. \MR{2840650}
+
+\bibitem[GL]{inftycoends}
+F.~Genovese and F.~Loregian, \emph{A general theory of coherent co/ends}, In
+  preparation.
+
+\bibitem[GPS95]{coherence-tricat}
+R.~Gordon, A.~J. Power, and Ross Street, \emph{Coherence for tricategories},
+  Mem. Amer. Math. Soc. \textbf{117} (1995), no.~558, vi+81. \MR{1261589}
+
+\bibitem[Gra]{Graya}
+John~W. Gray, \emph{Closed categories, lax limits and homotopy limits},
+  127--158. \MR{593251 (82f:18007a)}
+
+\bibitem[Gra74]{Gray}
+\bysame, \emph{Formal category theory: adjointness for {$2$}-categories},
+  Springer-Verlag, Berlin, 1974, Lecture Notes in Mathematics, Vol. 391.
+  \MR{MR0371990 (51 \#8207)}
+
+\bibitem[Gra80]{Gray1980}
+\bysame, \emph{Closed categories, lax limits and homotopy limits}, J. Pure
+  Appl. Algebra \textbf{19} (1980), 127--158. \MR{593251 (82f:18007a)}
+
+\bibitem[Gro13]{groth2013derivators}
+M.~Groth, \emph{Derivators, pointed derivators and stable derivators},
+  Algebraic \& Geometric Topology \textbf{13} (2013), no.~1, 313--374.
+
+\bibitem[GV72]{artin1972sga}
+A.~Grothendieck and J.~Verdier, \emph{Th{\'e}orie des topos (\textsc{sga} 4,
+  expos{\'e}s \textsc{i}-\textsc{vi})}, Springer Lecture Notes in Mathematics
+  \textbf{269} (1972), 270.
+
+\bibitem[GZ67]{GZ}
+Peter Gabriel and Michel Zisman, \emph{Calculus of fractions and homotopy
+  theory}, Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 35,
+  Springer-Verlag New York, Inc., New York, 1967. \MR{0210125 (35 \#1019)}
+
+\bibitem[Hof11]{hoffnung2011spans}
+Alexander~E Hoffnung, \emph{Spans in 2-categories: A monoidal tricategory},
+  \arXivPreprint{1112.0560} (2011).
+
+\bibitem[H{\"o}r14]{hormann2014homotopy}
+Fritz H{\"o}rmann, \emph{Homotopy limits and colimits in nature—a motivation
+  for derivators}, Lecture notes, summer school on derivators, Freiburg, arXiv
+  (2014).
+
+\bibitem[Hov99]{Hov}
+M.~Hovey, \emph{Model categories}, Mathematical Surveys and Monographs,
+  vol.~63, American Mathematical Society, Providence, RI, 1999. \MR{1650134
+  (99h:55031)}
+
+\bibitem[IK86]{imkelly}
+Geun~Bin IM and G.M. Kelly, \emph{A universal property of the convolution
+  monoidal structure}, Journal of Pure and Applied Algebra \textbf{43} (1986),
+  no.~1, 75 -- 88.
+
+\bibitem[Isa09]{Isaacson}
+Samuel~B. Isaacson, \emph{A note on unenriched homotopy coends}, Online
+  preprint: \url{http://www-home.math.uwo.ca/~sisaacso/PDFs/coends.pdf} (2009).
+
+\bibitem[Joy02a]{Joyal2002}
+A.~Joyal, \emph{Quasi-categories and {K}an complexes}, J. Pure Appl. Algebra
+  \textbf{175} (2002), no.~1-3, 207--222, Special volume celebrating the 70th
+  birthday of Professor Max Kelly. \MR{1935979 (2003h:55026)}
+
+\bibitem[Joy02b]{joyal2002quasi}
+Andr{\'e} Joyal, \emph{Quasi-categories and {K}an complexes}, Journal of Pure
+  and Applied Algebra \textbf{175} (2002), no.~1, 207--222.
+
+\bibitem[Joy08]{Joy}
+\bysame, \emph{The theory of quasi-categories and its applications}, Citeseer,
+  2008.
+
+\bibitem[JT07]{JoyS}
+Andr{\'e} Joyal and Myles Tierney, \emph{Quasi-categories vs {S}egal spaces},
+  Categories in algebra, geometry and mathematical physics, Contemp. Math.,
+  vol. 431, Amer. Math. Soc., Providence, RI, 2007, pp.~277--326. \MR{2342834
+  (2008k:55037)}
+
+\bibitem[Kel80]{kelly1980unified}
+{G}.~{M}ax Kelly, \emph{A unified treatment of transfinite constructions for
+  free algebras, free monoids, colimits, associated sheaves, and so on},
+  Bulletin of the Australian Mathematical Society \textbf{22} (1980), no.~01,
+  1--83.
+
+\bibitem[Kel82]{kelly1982basic}
+\bysame, \emph{Basic concepts of enriched category theory}, no.~64, CUP
+  Archive, 1982.
+
+\bibitem[Kel89]{2catlimits}
+\bysame, \emph{Elementary observations on 2-categorical limits}, Bulletin of
+  the Australian Mathematical Society \textbf{39} (1989), 301--317.
+
+\bibitem[Kel05]{Kelly2005a}
+\bysame, \emph{On the operads of {J}. {P}. {M}ay}, Repr. Theory Appl. Categ.
+  (2005), no.~13, 1--13. \MR{2177746 (2006f:18005)}
+
+\bibitem[KS74]{kelly1974review}
+Gregory~M. Kelly and R.~Street, \emph{Review of the elements of 2-categories},
+  Category seminar, Springer, 1974, pp.~75--103.
+
+\bibitem[Law73]{LawvereFW:metsgl}
+Bill Lawvere, \emph{Metric spaces, generalised logic, and closed categories},
+  Rendiconti del Seminario Matematico e Fisico di Milano, vol.~43, Tipografia
+  Fusi, Pavia, 1973.
+
+\bibitem[LB15]{Libland2015}
+David Li-Bland, \emph{The stack of higher internal categories and stacks of
+  iterated spans}, \arXivPreprint{1506.08870} (2015).
+
+\bibitem[Lei]{Leinster-cafe}
+T.~Leinster, \emph{{A} {P}erspective on {H}igher {C}ategory {T}heory}, webpage:
+  \url{https://golem.ph.utexas.edu/category/2010/03/a_perspective_on_higher_catego.html}.
+
+\bibitem[Low13]{low2013universes}
+Zhen~Lin Low, \emph{Universes for category theory}, \arXivPreprint{1304.5227}
+  (2013).
+
+\bibitem[Lur09]{HTT}
+J.~Lurie, \emph{Higher {T}opos {T}heory}, Annals of Mathematics Studies, vol.
+  170, Princeton University Press, Princeton, NJ, 2009. \MR{2522659
+  (2010j:18001)}
+
+\bibitem[LV12]{loday2012algebraic}
+Jean-Louis Loday and Bruno Vallette, \emph{Algebraic operads}, Grundlehren der
+  Mathematischen Wissenschaften [Fundamental Principles of Mathematical
+  Sciences], vol. 346, Springer, Heidelberg, 2012. \MR{2954392}
+
+\bibitem[May72]{may1972geometry}
+J.P. May, \emph{The geometry of iterated loop spaces}, Springer-Verlag,
+  Berlin-New York, 1972, Lectures Notes in Mathematics, Vol. 271. \MR{0420610
+  (54 \#8623b)}
+
+\bibitem[May97]{MR1436914}
+J.~P. May, \emph{Operads, algebras and modules}, Operads: {P}roceedings of
+  {R}enaissance {C}onferences ({H}artford, {CT}/{L}uminy, 1995), Contemp.
+  Math., vol. 202, Amer. Math. Soc., Providence, RI, 1997, pp.~15--31.
+  \MR{1436914}
+
+\bibitem[ML70]{mac1970milgram}
+S.~Mac~Lane, \emph{The {M}ilgram bar construction as a tensor product of
+  functors}, The {S}teenrod {A}lgebra and its {A}pplications ({P}roc. {C}onf.
+  to {C}elebrate {N}. {E}. {S}teenrod's {S}ixtieth {B}irthday, {B}attelle
+  {M}emorial {I}nst., {C}olumbus, {O}hio,1970), Lecture Notes in Mathematics,
+  Vol. 168, Springer, Berlin, 1970, pp.~135--152. \MR{0273618 (42 \#8495)}
+
+\bibitem[ML98]{McL}
+\bysame, \emph{Categories for the working mathematician}, second ed., Graduate
+  Texts in Mathematics, vol.~5, Springer-Verlag, New York, 1998. \MR{1712872
+  (2001j:18001)}
+
+\bibitem[MLM92]{mac1992sheaves}
+S.~Mac~Lane and I.~Moerdijk, \emph{Sheaves in geometry and logic: A first
+  introduction to topos theory}, Springer, 1992.
+
+\bibitem[Moe95]{Moe}
+I.~Moerdijk, \emph{Classifying spaces and classifying topoi}, Lecture Notes in
+  Mathematics, vol. 1616, Springer-Verlag, Berlin, 1995. \MR{1440857
+  (98f:18006)}
+
+\bibitem[MSS02]{markl2007operads}
+M.~Markl, S.~Shnider, and J.~Stasheff, \emph{Operads in algebra, topology and
+  physics}, Mathematical Surveys and Monographs, vol.~96, American Mathematical
+  Society, Providence, RI, 2002. \MR{1898414 (2003f:18011)}
+
+\bibitem[Rie14]{riehl2014categorical}
+E.~Riehl, \emph{Categorical homotopy theory}, New Mathematical Monographs,
+  vol.~24, Cambridge University Press, Cambridge, 2014. \MR{3221774}
+
+\bibitem[RV14]{emilyreedy}
+E.~Riehl and D.~Verity, \emph{The theory and practice of {R}eedy categories},
+  Theory Appl. Categ. \textbf{29} (2014), 256--301. \MR{3217884}
+
+\bibitem[Sch13]{Schreiber2013}
+U.~Schreiber, \emph{Differential cohomology in a cohesive $\infty$-topos},
+  ArXiv:1310.7930 (2013).
+
+\bibitem[Seg74]{segal1974a}
+Graeme Segal, \emph{Categories and cohomology theories}, Topology \textbf{13}
+  (1974), 293--312. \MR{0353298}
+
+\bibitem[Shu06]{shulman}
+Michael Shulman, \emph{Homotopy limits and colimits and enriched homotopy
+  theory}, \arXivPreprint{math/0610194} (2006).
+
+\bibitem[Str76]{Street19}
+Ross Street, \emph{Limits indexed by category-valued 2-functors}, Journal of
+  Pure and Applied Algebra \textbf{8} (1976), no.~2, 149 -- 181.
+
+\bibitem[Str12]{street2012monoidal}
+R.~Street, \emph{Monoidal categories in, and linking, geometry and algebra},
+  Bull. Belg. Math. Soc. Simon Stevin \textbf{19} (2012), no.~5, 769--821.
+  \MR{3009017}
+
+\bibitem[Tria]{trimblerads}
+T.~Trimble, \emph{Towards a doctrine of operads.
+  \href{http://ncatlab.org:8080/toddtrimble/published/Towards+a+doctrine+of+operads}{$n$Lab
+  page}}.
+
+\bibitem[Trib]{Salvo}
+S.~Tringàli, \emph{Plots and their applications - part i: Foundations},
+  \arXivPreprint{1311.3524}.
+
+\bibitem[TV05]{toen2005homotopical}
+B.~To{\"e}n and G.~Vezzosi, \emph{Homotopical algebraic geometry i: Topos
+  theory}, Advances in mathematics \textbf{193} (2005), no.~2, 257--372.
+
+\bibitem[{Uni}13]{hottbook}
+The {Univalent Foundations Program}, \emph{Homotopy type theory: Univalent
+  foundations of mathematics}, \url{http://homotopytypetheory.org/book},
+  Institute for Advanced Study, 2013.
+
+\bibitem[Vit06]{Claudi-2006}
+Claudia Centazzo; Enrico~M. Vitale, \emph{A classification of geometric
+  morphisms and localizations for presheaf categories and algebraic
+  categories}, Journal of Algebra \textbf{303} (2006).
+
+\bibitem[Wat75]{MR0396578}
+William~C. Waterhouse, \emph{Basically bounded functors and flat sheaves},
+  Pacific J. Math. \textbf{57} (1975), no.~2, 597--610. \MR{0396578}
+
+\bibitem[Wei94]{Weibel1994}
+Charles~A. Weibel, \emph{An introduction to homological algebra}, Cambridge
+  Studies in Advanced Mathematics, vol.~38, Cambridge University Press,
+  Cambridge, 1994. \MR{1269324 (95f:18001)}
+
+\bibitem[Yon60]{yoneda}
+Nobuo Yoneda, \emph{On {E}xt and exact sequences}, J. Fac. Sci. Univ. Tokyo
+  Sect. I \textbf{8} (1960), 507--576 (1960). \MR{0225854 (37 \#1445)}
+
+\end{thebibliography}

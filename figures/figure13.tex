@@ -1,0 +1,11 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{kD}
+\lattice[mesh]{
+\obj (A): {\displaystyle \oint_a T(a,a) = \int_{a',a''} \delta\A(a',a'')\pitchfork T(a', a'')}; \\ \obj (B):{\displaystyle \int_{a',a'',n}\big(\Delta[n]\times \amalg \A[a'|\vec x| a'']\big)\pitchfork T(a',a'')}; \\ \obj (C):{\displaystyle \Delta[n]\pitchfork \mathfrak Y(T)^n.};\\
+};
+\mor A \wr:-> B -> C;
+\end{kD}
+\end{document}

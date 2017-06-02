@@ -1,0 +1,42 @@
+% ends and coends; now with SSH key
+\documentclass[ a4paper%
+               ,twoside%
+               ,10pt%
+               ,reqno]{amsart}
+
+\input{preambolo}
+\usepackage{todonotes}
+
+\def\diag{\textsf{diag}}
+\def\tot{\textsf{tot}}
+
+\includeonly{
+   chapters/01-abstract-intro-acks,
+   chapters/02-dinaturality,
+   chapters/03-yoneda,
+   chapters/04-nerves,
+   chapters/05-weightlimits,
+   chapters/06-profunctors,
+   chapters/07-operads,
+   chapters/08-hdcoends,
+   chapters/09-promonoidal,
+   chapters/10-fourier
+}
+\begin{document}
+
+
+\include*{chapters/01-abstract-intro-acks}
+\include*{chapters/02-dinaturality}
+\include*{chapters/03-yoneda}
+\include*{chapters/04-nerves}
+\include*{chapters/05-weightlimits}
+\include*{chapters/06-profunctors}
+\include*{chapters/07-operads}
+\include*{chapters/08-hdcoends}\appendix
+\include*{chapters/09-promonoidal}
+\include*{chapters/10-fourier}
+
+\hrulefill
+\bibliography{allofthem}{}
+\bibliographystyle{amsalpha}
+\end{document}

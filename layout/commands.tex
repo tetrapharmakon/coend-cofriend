@@ -1,0 +1,110 @@
+\newcommand{\eend}{end}
+\newcommand{\coend}{coend}
+
+\def\mho{\rotatebox[origin=c]{180}{$\Omega$}}
+
+\def\proP{\textsc{p}}
+\def\proQ{\textsc{q}}
+\def\proH{\textsc{h}}
+\def\proL{\textsc{l}}
+\def\proK{\textsc{k}}
+\def\proG{\textsc{g}}
+
+\providecommand{\abbrv}[1]{#1.\@\xspace}
+  \providecommand{\ie}	 {\abbrv{i.e}}
+  \providecommand{\etc}	 {\abbrv{etc}}
+  \providecommand{\prof} {\abbrv{prof}}
+  \providecommand{\viz}	 {\abbrv{viz}}
+  \providecommand{\eg}	 {\abbrv{e.g}}
+  \providecommand{\achap}{\abbrv{Ch}}
+  \providecommand{\adef} {\abbrv{Def}}
+  \providecommand{\aprop}{\abbrv{Prop}}
+  \providecommand{\athm} {\abbrv{Thm}}
+
+\usepackage{CJKutf8}
+
+% The yoneda embedding: the letter "yo" in hiragana
+\newcommand{\yon}{\text{\begin{CJK}{UTF8}{min}よ\end{CJK}}}
+
+\newcommand{\wk}{\textsc{wk}}
+\newcommand{\cof}{\textsc{cof}}
+\newcommand{\fib}{\textsc{fib}}
+
+\def\itsnonsense{\upeyes}
+
+\newcommand{\bDelta}{\pmb\Delta}
+\newcommand{\Dist}{\cate{Relt}}
+\newcommand{\varsSet}{\widehat{\bDelta}}
+\newcommand{\simplex}[1]{{\Delta[#1]}}
+\newcommand{\xto}[2][]{\xrightarrow[#1]{#2}}
+\newcommand{\xot}[2][]{\xleftarrow[#1]{#2}}
+\newcommand{\bsmat}{\left[\begin{smallmatrix}}
+\newcommand{\esmat}{\end{smallmatrix}\right]}
+\renewcommand{\phi}{\varphi}
+\newcommand{\var}[3][]{
+  \left[\begin{smallmatrix} #2 \\ 
+  #1\downarrow \\ #3 
+  \end{smallmatrix}\right]}
+\newcommand{\laxto}{\dashrightarrow}
+\newcommand{\ccirc}{\diamond}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\hoLan}{hoLan}
+\DeclareMathOperator{\hoRan}{hoRan}
+\DeclareMathOperator{\Rift}{Rift}
+\DeclareMathOperator{\Lift}{Lift}
+\DeclareMathOperator{\ob}{Ob}
+\newcommand{\opp}{\text{op}}
+\newcommand{\oo}{\text{oo}}
+\newcommand{\Ex}{\text{Ex}}
+
+\newcommand{\dashlim}{\text{-lim }}
+\providecommand{\defequal}  {\triangleq}
+
+\newcommand{\cate}[1]{\text{\fontseries{b}\selectfont{#1}}}
+  \newcommand{\A}     {\cate{A}}
+  \newcommand{\B}     {\cate{B}}
+  \newcommand{\C}     {\cate{C}}
+  \newcommand{\Cat}   {\cate{Cat}}
+  \newcommand{\Gpd}   {\cate{Gpd}}
+  \newcommand{\Ab}   {\cate{Ab}}
+  \newcommand{\D}     {\cate{D}}
+  \newcommand{\K}     {\cate{K}}
+  \renewcommand{\P}   {\cate{P}}
+  \newcommand{\catS}  {\cate{S}}
+  \newcommand{\Sets}  {\cate{Sets}}
+  \newcommand{\Set}   {\cate{Sets}}
+  \newcommand{\sSet}  {\cate{sSet}}
+
+  \newcommand{\N}{\mathbb{N}}
+  \newcommand{\Z}{\mathbb{Z}}
+
+  \newcommand{\Top}   {\cate{Top}}
+  \newcommand{\E}     {\mathcal{E}}
+  \renewcommand{\L}   {\mathcal{L}}
+  \newcommand{\M}     {\mathcal{M}}
+  \newcommand{\R}     {\mathcal{R}}
+  \newcommand{\V}     {\mathcal{V}}
+  \newcommand{\tee}   {\mathfrak{t}}
+  \newcommand{\T}     {\mathfrak{T}}
+  \newcommand{\Y}     {\mathfrak{Y}}
+  \newcommand{\W}     {\mathfrak{W}}
+  \newcommand{\VCat}  {\V\text{-}\Cat}
+
+\def\Nat{\textsf{Nat}}
+\def\Fun{\textsf{Fun}}
+\def\LNat{\textsf{LNat}}
+\def\bemo{\flat}
+\def\diesis{\sharp}
+\newcommand{\pto}{\leadsto}
+\newcommand{\wlim}[1]{{\textstyle \varprojlim^{#1}}}
+\newcommand{\wcolim}[1]{{\textstyle \varinjlim^{#1}}}
+\newcommand{\hocolim}{\underrightarrow{\text{holim}}\,}
+\newcommand{\holim}{\underleftarrow{\text{holim}}\,}
+\newcommand{\elts}[2]{#1\!\int\! #2}
+\newcommand{\tw}{\textsc{tw}}
+
+\newcommand{\twoint}{\sqint}
+\newcommand{\infint}{\oint}

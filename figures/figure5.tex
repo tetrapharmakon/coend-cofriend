@@ -1,0 +1,14 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{kD}
+\lattice[mesh={4em}{6em}]{
+	\obj (A):(\elts{\C}{W})^\opp; & \obj (B):*;\\
+	\obj (D):{\C^\opp}; & \obj (C):[\C,\Set];\\
+};
+\mor A -> B {\lceil W\rceil}:-> C;
+\mor[swap] A -> D {\yon_\C}:-> C;
+\mor[/kD/chop=.3|*|.3] B 2-> D;
+\end{kD}
+\end{document}

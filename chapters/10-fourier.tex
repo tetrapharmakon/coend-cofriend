@@ -1,0 +1,45 @@
+\section{Fourier transforms via coends.}
+\begin{definition}
+Let $\A ,\C$ be two promonoidal categories with pormonoidal structures $\mathfrak{P}$ and $\mathfrak{Q}$ respectively; a \emph{multiplicative kernel} from $\A$ to $\C$ consists of a profunctor $K\colon \A\pto \C$ such that there are the two natural isomorphisms
+\begin{itemize}
+\item[$k_1$)] $\int^{yz}K^a_y K^b_z P^{yz}_x\cong \int^c K^c_x P^{ab}_c$;
+\item[$k_2$)] $\int^c K^c_x J_c\cong J_x$.
+\end{itemize}
+These isomorphisms say that $K$ ``behaves like $\hom$'' even if it is not an endofunctor (in fact, $\hom$ is a particular example of a kernel $\A\pto \A$, since the isomorphisms $k_1, k_2$ follow from the ninja Yoneda lemma \refbf{ninjayo}).
+A \emph{multiplicative} natural transformation $\alpha\colon K\to H$ is a 2-cell between profunctors commuting with the structural isomorphisms given in $(k_1), (k_2)$ in the obvious sense.
+\end{definition}
+\begin{exercise}
+Define the category of multiplicative kernels $\ker(\A,\C)\subset \Dist(\A,\C)$ in such a way that the composition of two kernels is again a kernel.
+\end{exercise}
+\begin{exercise}
+Show that a profunctor $K\colon \A\pto \C$ is a multiplicative kernel if and only if the cocontinuous functor $\Lan_\yon K=\hat K \colon [\A, \Sets]\to [\C, \Sets]$ corresponding to $\bar K\colon \A \to \widehat{\C}$ under the construction in \refbf{alternative} preserves the convolution monoidal structure on both categories $[\A, \Sets]_{\mathfrak P}$ and $ [\C, \Sets]_{\mathfrak Q}$. 
+
+Describe the isomorphisms $k_1, k_2$ when $\mathfrak P$ is Day convolution.
+\end{exercise}
+\begin{exercise}
+Show that a functor $F\colon (\A,\otimes_{\A}, i) \to (\C,\otimes_\C, j)$ between monoidal categories is strong monoidal, \ie
+\begin{itemize}
+\item $F(a\otimes b)\cong Fa\otimes Fb$;
+\item $Fi\cong j$
+\end{itemize}
+naturally in $a,b$ if and only if $\proP^F=\hom(F,1)$ is a multiplicative kernel.
+
+Dually, show that for $\A,\C$ promonoidal, $F\colon \C\to \A$ preserves convolution on $[\A, \Sets]_{\mathfrak P}, [\C, \Sets]_{\mathfrak Q}$ precisely if $\proP_F=\hom(1, F)$ is a multiplicative kernel.
+\end{exercise}
+\begin{definition}
+Let $K\colon \A\pto\C$ be a multiplicative kernel between promonoidal categories; define the $K$-\emph{Fourier transform} $f\mapsto \hat K(f)\colon \C\to \Sets$, obtained as the image of $f\colon \A\to\Sets$ under the left Kan extension $\Lan_\yon K\colon [\A, \Sets]\to [\C, \Sets]$.
+\end{definition}
+\begin{exercise}
+Show the following properties of the $K$-Fourier transform:
+\begin{itemize}
+\item There is the canonical isomorphism
+\[
+\hat K(f) \cong \int^a K(a,\firstblank)\times f(a)
+\]
+\item $\hat K$ preserves the convolution monoidal structure (this is the \emph{Parseval identity} for the Fourier transform);
+\item $\hat K$ has a right adjoint defined by
+\[
+\check{K}(g) \cong \int_x [K(\firstblank, x), g(x)].
+\]
+\end{itemize}
+\end{exercise}
