@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%  Copyright 2015 by Paolo Brasolin <paolo.brasolin@gmail.com>                 %
+%                                                                              %
+%  This file is part of kD.                                                    %
+%                                                                              %
+%  kD is free software: you can redistribute it and/or modify                  %
+%  it under the terms of the GNU General Public License as published by        %
+%  the Free Software Foundation, either version 3 of the License, or           %
+%  (at your option) any later version.                                         %
+%                                                                              %
+%  kD is distributed in the hope that it will be useful,                       %
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of              %
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               %
+%  GNU General Public License for more details.                                %
+%                                                                              %
+%  You should have received a copy of the GNU General Public License           %
+%  along with kD.  If not, see <http://www.gnu.org/licenses/>.                 %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlinechar=`\^^J
+
+
+\pgfqkeys{/cleanser/expand}{.is choice,
+  none/.style={/cleanser/input/.style={/cleanser/process={##1}}},
+  once/.style={/cleanser/input/.style={/cleanser/process/.expand once={##1}}},
+  full/.style={/cleanser/input/.style={/cleanser/process/.expanded={##1}}}}
+
+\pgfqkeys{/cleanser}{
+  expand=none,
+  output/.initial={},
+  process/.code={
+    \kDSanitize#1\into tmp\GO
+    \message{[Cleanser: \Meaning-> \tmp]^^J}
+    \pgfkeysalso{/cleanser/output/.expand once=\tmp}},
+}
+
+\tikzset{
+  self naming node/.style={
+    node contents/.forward to=/cleanser/input,
+    /cleanser/output/.forward to=/tikz/name,},
+}
+
+\def\kDMeanCut#1:->#2\into#3\GO%
+  {\kDCSDef{#3}{#2}}
+
+\def\kDMeaningOf#1\into#2\GO%
+  {\def\kDfoo{#1}\edef\kDbar{\meaning\kDfoo}%
+   \expandafter\kDMeanCut\kDbar\into#2\GO}
+
+\def\kDSanitize#1\into#2\GO%
+  {\kDMeaningOf#1 \into Meaning\GO% I put an extra space for easy parsing
+   \expandafter\edef\csname#2\endcsname% and catch it as the empty exception
+     {\ifx\Meaning\space\else\expandafter\kDSieveString\Meaning\GO\fi}}
+
+% Maybe a switch to preserve/erase spaces would be useful here
+\def\kDSieveString#1 #2\GO%
+  {\kDSieveWord#1\GO\ifx\relax#2\else\space\kDSieveString#2\GO\fi}
+
+\def\kDSieveWord#1#2\GO%
+  {\kDSieveCharacter#1\GO\ifx\relax#2\else\kDSieveWord#2\GO\fi}
+
+% Spaces after number to avoid stray \relax
+\def\kDSieveCharacter#1\GO%
+  {\ifnum`#1=36 \else% $ dollar
+   \ifnum`#1=44 \else% , comma
+   \ifnum`#1=46 \else% . dot
+   \ifnum`#1=58 \else% : colon
+   \ifnum`#1=92 \else% \ backslash
+   \ifnum`#1=40 \else% ( left round brace
+   \ifnum`#1=41 \else% ) right round brace
+   #1\fi\fi\fi\fi\fi\fi\fi}
+
+% #################################################################### THE END #

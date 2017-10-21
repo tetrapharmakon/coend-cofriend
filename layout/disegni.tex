@@ -1,0 +1,79 @@
+\newcommand{\arXivPreprint}[1]{arXiv preprint \href{http://arxiv.org/abs/#1}{arXiv:#1}}
+
+
+\newcommand{\standard}{
+\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw (1,0) .. controls (1,.5) and (1.5,.5) .. (1.5,0);
+\draw (1,1) .. controls  (1,.5) and (1.5,.5) .. (1.5,1);
+}
+
+\newcommand{\standardbis}[3]{
+\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw[#1] (.5,0) -- (.5,1);
+\draw[#2] (1,0) .. controls (1,.5) and (1.5,.5) .. (1.5,0);
+\draw[#3] (1,1) .. controls  (1,.5) and (1.5,.5) .. (1.5,1);
+}
+
+\newcommand{\first}[1]{\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw[xshift=.5cm] (.5,0)  -- (.5,1);
+\draw[xshift=1cm] (.5,0)-- (.5,1);
+\filldraw[lightgray!70] (.5,.5) circle (6pt) node[black] {$ #1 $};}
+\newcommand{\second}[1]{\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw[xshift=.5cm] (.5,0)  -- (.5,1);
+\draw[xshift=1cm] (.5,0)-- (.5,1);
+\filldraw[lightgray!70] (1,.5) circle (6pt) node[black] {$ #1 $};}
+\newcommand{\third}[1]{\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw[xshift=.5cm] (.5,0)  -- (.5,1);
+\draw[xshift=1cm] (.5,0)-- (.5,1);
+\filldraw[lightgray!70] (1.5,.5) circle (6pt) node[black] {$ #1 $};}
+
+
+%%%%%%%%%%%%%%%%%%
+
+\newcommand{\upeyes}{%
+  \begin{tikzpicture}
+  \draw circle (3pt);
+  \draw[fill,yshift=1.5pt] circle (1.5pt);
+  \begin{scope}[xshift=7pt]
+  \draw circle (3pt);
+  \draw[fill,yshift=1.5pt] circle (1.5pt);
+  \end{scope}
+  \end{tikzpicture}%
+}
+
+\newcommand{\downeyes}{%
+  \begin{tikzpicture}
+  \draw circle (3pt);
+  \draw[fill,yshift=-1.5pt] circle (1.5pt);
+  \begin{scope}[xshift=7pt]
+  \draw circle (3pt);
+  \draw[fill,yshift=-1.5pt] circle (1.5pt);
+  \end{scope}
+  \end{tikzpicture}%
+}
+
+\newcommand{\righteyes}{%
+  \begin{tikzpicture}
+  \draw circle (3pt);
+  \draw[fill,xshift=1.5pt] circle (1.5pt);
+  \begin{scope}[xshift=7pt]
+  \draw circle (3pt);
+  \draw[fill,xshift=1.5pt] circle (1.5pt);
+  \end{scope}
+  \end{tikzpicture}%
+}
+
+\newcommand{\awful}{%
+   \begin{tikzpicture}
+   \draw circle (3pt);
+   \draw[fill] circle (1.5pt);
+   \begin{scope}[xshift=7pt]
+   \draw circle (3pt);
+   \draw[fill] circle (1.5pt);
+   \end{scope}
+   \end{tikzpicture}%
+}

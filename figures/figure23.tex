@@ -1,0 +1,24 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 23
+\begin{kD}
+\lattice[mesh={4em}{8em}]{
+\obj (TTT):{T\diamond T}\diamond T; & \obj (TT):{T\diamond T}; \\
+\obj (TTl):{T\diamond T}; & \obj T;\\	
+};
+\mor TTT T\diamond\mu:-> TT \mu:-> T;
+\mor[swap] * {\mu\diamond T}:-> TTl \mu:-> *;
+\begin{scope}[xshift=18em]
+\lattice[mesh={4em}{8em}]{
+\obj (JT):{J\diamond T}; & \obj (TT):{T\diamond T}; & \obj (TJ):{T\diamond J};\\
+& \obj T; & \\
+};
+\mor JT {\eta\diamond T}:-> TT \mu:-> T;
+\mor[swap] * \cong:-> *;
+\mor[swap] TJ T\diamond\eta:-> TT;
+\mor * \cong:-> T;
+\end{scope}
+\end{kD}
+\end{document}

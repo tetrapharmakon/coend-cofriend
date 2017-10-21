@@ -1,0 +1,14 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 26
+\begin{kD}
+\lattice[mesh={4em}{14em}]{
+	\obj (A):Tm \otimes \P(\vec n,k)\cdot T\vec n; & \obj (B):Tm \otimes \P (\vec n,k)\cdot T\vec n; \\
+	\obj (C):Tm \otimes \P(\vec n,k)\cdot T\vec n; & \obj Tk;\\
+};
+\mor A {\sigma^*}:-> B -> Tk;
+\mor * {\sigma_*}:-> C ->  *;
+\end{kD}
+\end{document}

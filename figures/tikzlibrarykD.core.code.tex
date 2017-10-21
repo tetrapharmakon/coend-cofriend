@@ -1,0 +1,224 @@
+% tikzlibrarykD.code.tex
+%
+% Copyright 2015 by Paolo Brasolin <paolo.brasolin@gmail.com>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+% ################################################################ LET'S DANCE #
+
+% ==================================================================== STYLING =
+
+\def\kDRemoveParens(#1){#1}
+\def\kDNamingShortcut#1{\pgfkeysalso{/tikz/name={\kDRemoveParens#1}}}
+
+% Default settings
+\pgfqkeys{/kD}{
+  .search also=/tikz,
+  objects/.search also=/tikz,
+  arrows/.search also=/tikz,
+  labels/.search also=/tikz,
+  matrices/.search also=/tikz,
+  every object/.style={/kD/objects/.cd},
+  every arrow/.style={/kD/arrows/.cd},
+  every label/.style={/kD/labels/.cd},
+  every matrix/.style={/kD/matrices/.cd},
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  current chain/.style={},
+  current chain/arrows/.style={},
+  current chain/labels/.style={},
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  every object/.append style={
+    self naming node,},
+  every arrow/.append style={
+    /kD/current chain/arrows,},
+  every label/.append style={
+    self naming node,
+    auto,
+    font=\everymath\expandafter{\the\everymath\scriptstyle},
+    inner sep=+0.5ex,
+    /kD/current chain/labels,},
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  /kD/arrows/.cd,
+    %->/.style={-Stealth},
+    2->/.style={double distance=1pt,-Implies,line width=.4pt},
+    r>/.style={bend left, ->},
+    L>/.style={bend right, ->},
+    2-/.style={double distance=2.5pt, line width=.35pt},
+  /kD/matrices/.cd,
+    comb/.style={
+      /tikz/row sep={sqrt(3/4)*#1,between origins},
+      /tikz/column sep={#1,between origins},
+      /tikz/every even row/.style={xshift=-0.5*#1},},
+    comb/.default=6em,
+    mesh/.style 2 args={
+      /tikz/row sep={#1,between origins},
+      /tikz/column sep={#2,between origins},},
+    mesh/.default={4em}{4em},
+    gold/.style={
+      /tikz/row sep=#1,
+      /tikz/column sep=1.618*#1,},
+    gold/.default=1.618em,
+    goldcomb/.style={
+      /tikz/column sep={1.618*#1,between origins},
+      /tikz/row sep={0.5*#1,between origins},
+      /tikz/every even row/.style={xshift=-0.5*1.618*#1},},
+    goldcomb/.default=6em,
+  /kD/arrows/.cd,
+    crossing over/.style={preaction={-,
+      draw=\pgfkeysvalueof{/kD/arrows/crossing over/color},
+      line width=\pgfkeysvalueof{/kD/arrows/crossing over/clearance},},},
+    crossing over/clearance/.initial=0.236em,
+    crossing over/color/.initial=white,
+    ÷/.style={crossing over},
+    ÷>/.style={÷,->},
+    <÷/.style={÷,<-},
+    shift/.style={transform canvas=
+      {shift={($(\tikztostart)!#1!-90:(\tikztotarget)-(\tikztostart)$)}}},
+    slide/.style={transform canvas=
+      {shift={($(\tikztostart)!#1!0:(\tikztotarget)-(\tikztostart)$)}}},
+  /kD/labels/.cd,
+    mid/.style={inner sep=1.5pt,shape=circle,fill=white,anchor=center},
+    </.style={near start},
+    >/.style={near end},
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  /handlers/first char syntax=true,
+  /handlers/first char syntax/the character (/.initial=\kDNamingShortcut,
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+
+% =========================================================== arrow keys: CHOP =
+
+\def\kDChopParse#1|#2|#3\GO%
+  {\kDBalancerInit\pgfdecoratedpathlength
+   \kDBalancerTally#1\to One\GO
+   \kDBalancerTally#2\to Two\GO
+   \kDBalancerTally#3\to Thr\GO
+   \expandafter\kDBalancerGauge\One\to Fst\GO
+   \expandafter\kDBalancerGauge\Thr\to Lst\GO
+   \pgfmathsetmacro\start{\Fst}
+   \pgfmathsetmacro\stop{1-\Lst}}
+
+\tikzset{/kD/chop/.style={ 
+  decoration={ 
+    show path construction, 
+    curveto code={
+      \kDFullExpandAfter\kDChopParse{#1}\GO
+      \pgfpathcurvebetweentime{\start}{\stop}
+      {\pgfpointdecoratedinputsegmentfirst}
+      {\pgfpointdecoratedinputsegmentsupporta}
+      {\pgfpointdecoratedinputsegmentsupportb}
+      {\pgfpointdecoratedinputsegmentlast}},
+    lineto code={ % kinda raw, this one
+      \kDFullExpandAfter\kDChopParse{#1}\GO
+      \pgfpathcurvebetweentime{\start}{\stop}
+      {\pgfpointdecoratedinputsegmentfirst}
+      {\pgfpointdecoratedinputsegmentfirst}
+      {\pgfpointdecoratedinputsegmentlast}
+      {\pgfpointdecoratedinputsegmentlast}}
+  },decorate}}
+
+% ============================================================ PARSING HELPERS =
+
+\def\kDSplice#1\at#2\into#3\and#4\GO%
+  {\def\Rimmer##1#2\GO{\kDCSDef{#4}{##1}}%
+   \def\Cutter##1#2##2\GO%
+     {\def\snd{##2}\ifx\snd\empty\kDCSDef{#3}{}\kDCSDef{#4}{##1}%
+      \else\kDCSDef{#3}{##1}\Rimmer##2\GO\fi}%
+   \Cutter#1#2\GO}
+
+\def\kDTrisect#1\at#2\into#3\and#4\and#5\GO%
+  {\def\Cut#2##1#2##2#2##3#2##4\GO%
+     {\def\cnt{##4}\def\one{#2}\def\two{#2#2}\def\thr{#2#2#2}
+      \ifx\cnt\one\kDCSDef{#3}{##1}\kDCSDef{#4}{}   \kDCSDef{#5}{}   \else
+      \ifx\cnt\two\kDCSDef{#3}{##2}\kDCSDef{#4}{##1}\kDCSDef{#5}{}   \else
+      \ifx\cnt\thr\kDCSDef{#3}{##3}\kDCSDef{#4}{##2}\kDCSDef{#5}{##1}\else
+      \errmessage{PROBLEMS, YO!}\fi\fi\fi}
+   \Cut#2#1#2#2#2#2\GO}
+
+\def\kDBisect#1\at#2\into#3\and#4\GO%
+  {\def\Cut#2##1#2##2#2##3\GO%
+     {\def\cnt{##3}\def\one{#2}\def\two{#2#2}
+      \ifx\cnt\one\kDCSDef{#3}{##1}\kDCSDef{#4}{}   \else
+      \ifx\cnt\two\kDCSDef{#3}{##2}\kDCSDef{#4}{##1}\else
+      \errmessage{PROBLEMS, YO!}\fi\fi}
+   \Cut#2#1#2#2#2\GO}
+
+% ========================================================= DRAWING PRIMITIVES =
+
+\def\kDObject#1\withNode#2\GO%
+  {\node[/kD/every object, node contents={$#1$}, #2];}
+
+\def\kDMorphism#1\withNode#2\withEdge#3\from#4\to#5\GO%
+  {\path (#4) edge [/kD/every arrow, #3, edge node={
+              node [/kD/every label, node contents={$#1$}, #2]}] (#5);}
+
+% ========================================================== PARAMETER PARSING =
+
+\def\kDDoObject#1\GO%
+  {\kDBisect#1\at:\into MathSpec\and NodeSpec\GO%
+   \expandafter\expandafter\expandafter\kDObject%
+   \expandafter\MathSpec\expandafter\withNode\NodeSpec\GO}
+
+\def\kDDoMorphism#1 #2 #3\GO%
+  {\kDTrisect#2\at:\into EdgeSpec\and MathSpec\and NodeSpec\GO%
+   \def\tmp{\NodeSpec,\kDChainOptions} % ------------------------------------------ WARNING, THIS WON'T WORK
+   \expandafter\expandafter\expandafter%
+   \expandafter\expandafter\expandafter%
+   \expandafter\kDMorphism\expandafter%
+   \expandafter\expandafter\MathSpec%
+   \expandafter\expandafter\expandafter%
+   \withNode\expandafter\NodeSpec%
+   \expandafter\withEdge\EdgeSpec\from#1\to#3\GO}
+
+\let\kDThisSource\relax \let\kDLastSource\relax
+\let\kDThisTarget\relax \let\kDLastTarget\relax
+\def\kDLast{*}
+
+\def\kDDoMorphismChain#1 #2 #3 #4\GO%
+  {\def\kDSource{#1}\ifx\kDSource\kDLast\let\kDSource\kDLastSource\fi
+   \def\kDTarget{#3}\ifx\kDTarget\kDLast\let\kDTarget\kDLastTarget\fi
+   \kDDoMorphism{\kDSource} {#2} {\kDTarget}\GO%
+   \ifx\kDThisSource\relax\let\kDThisSource\kDSource\fi
+   \ifx\relax#4\relax
+   \let\kDLastSource\kDThisSource\let\kDThisSource\relax
+   \let\kDLastTarget\kDTarget
+   \else\kDDoMorphismChain{#3} #4\GO\fi}
+
+% ============================================================= USER INTERFACE =
+
+\def\obj#1;%
+  {\kDDoObject#1\GO}
+
+\def\kDChainOptions{}
+
+\def\MorChain #1;{%
+  \pgfkeys{/kD/current chain/arrows/.style={}}%
+  \pgfkeys{/kD/current chain/labels/.style={}}%
+  \kDDoMorphismChain #1 \GO}
+\def\MorOpt[#1] #2;{%
+  \kDBisect#1\at:\into ArrowSpec\and LabelSpec\GO%
+  \pgfkeys{/kD/current chain/arrows/.estyle=\ArrowSpec}%
+  \pgfkeys{/kD/current chain/labels/.estyle=\LabelSpec}%
+  \kDDoMorphismChain #2 \GO}
+
+\def\mor{\let\kDCommonOpt\relax\futurelet\MaybeSquare\MaybeOptMor}
+\def\MaybeOptMor{\ifx[\MaybeSquare \let\next\MorOpt
+\else \let\next\MorChain \fi \next}
+
+
+
+\def\lattice[#1]{\matrix[/kD/every matrix,#1]}
+
+
+% #################################################################### THE END #

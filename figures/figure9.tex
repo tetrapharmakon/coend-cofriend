@@ -1,0 +1,14 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh={4em}{18em}]{
+\obj (A):\D(J\times K\times K^\opp); & \obj (B):\D'(J);\\	
+};
+\mor[swap] A (2):{\p_! \circ F_{J\times L\times \textsc{Tw}(K)}\circ (t,s)^*}:-> B;
+\mor[bend left=45] * (1):{\p_! \circ (t,s)^*\circ F_{J\times L\times K^\opp\times K}}:-> *;
+\mor[bend right=45,swap]  * (3):{F_{J\times L}\circ \p_!\circ (t,s)^*}:-> *;
+\mor[/kD/chop=.3|*|.3] 1 \wr:2-> 2-|1 2-> 3;
+\end{tikzpicture}
+\end{document}

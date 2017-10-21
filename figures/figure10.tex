@@ -1,0 +1,18 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh={4em}{8em}]{
+	\obj (D'e):\D'(e); & \obj (D'J):\D'(J);  & \obj (DJ):\D(J); \\
+                       & \obj (D'e2):\D'(e); & \obj (De):\D(e); & \obj (DJ2):\D(J);\\
+};
+\mor[swap] DJ F_J:-> D'J {p_!}:-> D'e;
+\mor DJ2 p_!:-> De F_e:-> D'e2;
+\mor[swap] D'e (id1):\text{id}:{bend right},- D'e2 {p^*}:-> D'J;
+\mor De p^*:-> DJ (id2):\text{id}:{bend left},- DJ2;
+\mor[/kD/chop=.3|*|.3] id2 {\eta_{(\p_!\dashv \p^*)}}:2-> De;
+\mor[/kD/chop=.3|*|.3] DJ 2-> D'e2;
+\mor[/kD/chop=.3|*|.3] D'J {\epsilon_{(\p_!\dashv \p^*)}}:2-> id1;
+\end{tikzpicture}
+\end{document}

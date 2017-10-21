@@ -1,0 +1,13 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh={4em}{8em}]{
+	\obj (pre):\sSet; & \obj \sSet;\\
+};
+\mor[shift=2mm] pre swap,(Sd):\textsf{Sd}:-> sSet;
+\mor[shift=2mm] sSet swap:\Ex:-> pre;
+\node at ($(Sd)!.5!(Ex)$) {$\perp$};
+\end{tikzpicture}
+\end{document}

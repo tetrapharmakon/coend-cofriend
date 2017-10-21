@@ -1,0 +1,361 @@
+%------------------------------------------------------------------------------
+% Beginning of example.tex
+%------------------------------------------------------------------------------
+%
+% LaTeX sample file for Rendiconti del Seminario Matematico della Universit\`a di Padova
+%
+\documentclass{RSMUP}
+
+\address[e-mail address]{Author's name, Department, University, PO Box or Street, City, Country}
+
+
+\address[e-mail address]{Author's name, Department, University, PO Box or Street, City, Country}
+
+%\address[e-mail address]{Author's name, Department, University, PO Box or Street, City, Country}
+
+%\address[e-mail address]{Author's name, Department, University, PO Box or Street, City, Country}
+
+
+%\received[revision date]{submission date}
+
+% Uncomment the next line if you would like your equations to be numbered according to sections:
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newtheorem*{coro}{Corollary} %%%% for unnumbered statements
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+
+
+
+%% Create a new command named "\eps" as abbreviation for \varepsilon
+
+\newcommand{\eps}{\varepsilon}	 % Epsilon
+
+
+
+% -- New Operators --
+%Use the command \DeclareMathOperator to define a new log-like function in LaTeX;
+%see Section 2.4 below
+
+
+\DeclareMathOperator{\Hom}{Hom}				
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sgn}{sgn}
+
+
+\title[Title of paper]{Title of paper}
+
+\author[First author's name \ --\  Second author's name]{First author's name\thanks{The author is grateful to
+the Max Planck Institute (Bonn) for hospitality during the writing of
+this paper.} \ --\ Second author's name\thanks{The author is grateful to
+IHES (Bures-sur-Yvette) for hospitality during the writing of
+this paper.}}
+
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\begin{abstract}
+This file explains how to prepare a contribution for publication in
+\textit{Rendiconti del Seminario Matematico della Universit\`a di Padova}.
+\end{abstract}
+
+\begin{classification}
+11M32; 14F20,  19F27.
+\end{classification}
+
+\begin{keywords}
+$L$-function,  Selmer group.
+\end{keywords}
+
+
+
+
+
+
+\section{Introduction}
+Authors are requested to use  standard \LaTeX\ and the class file
+\begin{verbatim}
+RSMUP.cls
+\end{verbatim}
+This style file is very similar to the standard article style file, and it loads amsmath,
+amsfonts, amssymb, latexsym, and with amsthm.sty included. It sets the page size to
+\begin{verbatim}
+\textheight=192mm
+\textwidth=125mm
+\end{verbatim}
+so you should not change the page size. We suggest you use this sample TeX file as a model,
+modifying it where appropriate.
+
+The \TeX\ source file should begin with
+\begin{verbatim}
+\documentclass{RSMUP}
+\end{verbatim}
+Enter the name(s) of the author(s) using the tag
+\begin{verbatim}
+\address[e-mail address]{Author's address}
+\end{verbatim}
+Each author's name should be entered with a separate \verb+\+{\tt address} command.
+No personal style files should be used. Each paper should contain the 2000 Mathematics
+Subject Classification.  Please avoid one-letter lower case newly defined commands like
+\begin{verbatim}
+\def\e{\varepsilon} or \newcommand{\e}{\varepsilon}
+\end{verbatim}
+since this can interfere with conversion of your article to Times fonts later. Use instead something
+like:
+\begin{verbatim}
+\newcommand{\eps}{\varepsilon}
+\end{verbatim}
+
+\section{Some rules}
+
+In order to achieve a uniform appearance of all the contributions, we encourage
+you to observe the following rules when preparing your article.
+
+\subsection{Section and subsections} Sections and paragraphs are obtained using the commands
+\begin{verbatim}\section{title of section} \subsection{...} \subsubsection{...}\end{verbatim}
+and unnumbered sections and paragraphs are obtained using their starred forms:
+\begin{verbatim}\section*{title of section} \subsection*{...} \subsubsection*{...}\end{verbatim}
+
+
+\subsection{Displayed formulas} If you have displayed formulas consisting of more than one line
+we recommend to you use
+\begin{verbatim}\begin{align}...\end{align}\end{verbatim}
+ instead of
+\begin{verbatim}\begin{eqnarray}...\end{eqnarray}\end{verbatim}
+(respectively the  starred forms) since the former yields a better spacing. Compare:
+\begin{align}
+A&=  f(x_i)= F'(x),
+\\
+B&=  g(x_i)= G'(x),
+\end{align}
+\begin{eqnarray}
+A&=& f(x_i)= F'(x),
+\\
+B&=& g(x_i)= G'(x).
+\end{eqnarray}
+In case you do not want the numbering for every line, type
+\begin{verbatim}\nonumber\end{verbatim}
+at the end of the line where you do not want a number.
+\begin{align}
+A&=  f(x_i)= F'(x),\nonumber
+\\
+B&=  g(x_i)= G'(x).
+\end{align}
+If you want a number for the complete block, this works:
+\begin{verbatim}
+\begin{equation}\begin{split}...\end{split}\end{equation}
+\end{verbatim}
+\begin{equation}
+\begin{split}
+A&=  f(x_i)= F'(x),
+\\
+B&=  g(x_i)= G'(x).
+\end{split}
+\end{equation}
+If you prefer to number equations in the form (2.1), (2.2), \dots, add the line
+\begin{verbatim}
+\numberwithin{equation}{section}
+\end{verbatim}
+to the preamble of your document.
+
+
+\subsection{Theorems and alike}
+
+For theorems, lemmas, definitions, etc.\ use the standard syntax.
+
+\begin{verbatim}
+\begin{theorem}...\end{theorem}, \begin{lemma}...\end{lemma}, etc.
+\end{verbatim}
+
+Put optional arguments into square brackets (``Theorem, \cite{Jon}'' in the example below).
+
+\begin{theorem}[Theorem 13.14, \cite{Jon}]
+Let $L$  be an oriented link and let $\alpha \in B_{2m}$ be such that
+$\tilde{\alpha}=L$ as unoriented links. Then there is a $k\in \mathbb{R}$, $2k \in \mathbb{Z}$,
+with $V_L(t)= t^k(-(t+1))^{m-1} \phi(\pi_0(\alpha))$.
+\end{theorem}
+
+\begin{definition}
+A \emph{preference order}  (or \emph{preference relation}) on $\mathcal X$ is a binary
+relation $\succ$ with the following two properties.
+\begin{enumerate}
+
+\item \emph{Asymmetry:} If $x\succ y$, then $y\not\succ x$.
+
+\item \emph{Negative transitivity}: If $x\succ y$ and $z\in{\mathcal X}$, then
+          either $x\succ z$ or $z\succ y$ or both must hold.
+
+\end{enumerate}
+\end{definition}
+
+In this example file, enumerations of theorems,
+lemmas definitions, etc.\ appear consecutively.
+If you want separate numbering (Theorem 2.1, Definition 2.1) change e.g.\
+\begin{verbatim}
+\newtheorem[theorem]{definition}
+\end{verbatim}
+to
+\begin{verbatim}
+\newtheorem{definition}{Definition}[section]
+\end{verbatim}
+
+If you want a statement unnumbered, just define
+\begin{verbatim}
+\newtheorem*{coro}{Corollary}
+\end{verbatim}
+to obtain
+
+\begin{coro}
+If $L$ and $L'$ are two oriented links which are isotopic as unoriented links,
+then there is a $k\in \mathbb{Z}$ such that
+\[
+V_L(t)= t^k V_{L'}(t).
+\]
+\end{coro}
+
+For a proof, use
+
+\begin{verbatim}
+\begin{proof}...\end{proof}
+\end{verbatim}
+
+An end-of-proof sign $\Box$ is set automatically.
+
+\begin{proof}
+This finishes the proof of the corollary.
+\end{proof}
+
+You can also make remarks and give examples with the commands
+\begin{verbatim}
+\begin{remark}...\end{remark}
+\begin{example}...\end{example}
+\end{verbatim}
+which will produce:
+
+\begin{remark}
+This is an example of a `remark' element.
+\end{remark}
+
+\begin{example}
+This is an example of an `example' element.
+\end{example}
+
+
+\subsection{Operator names}
+
+There are several \TeX-commands setting things automatically upright like $\det$, $\sin$,\dots\,.
+If you need operators not predefined, simply define e.g.
+\begin{verbatim}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ker}{Ker}
+\end{verbatim}
+and then use
+\begin{verbatim}
+\Hom, \Ker
+\end{verbatim}
+to obtain
+$$
+\varphi \in \Hom(G/H) \Longrightarrow \Ker(\varphi) \not= \{0\}.
+$$
+It is accepted typographical standard that abbreviated mathematical expressions standing for ``words''
+appear in roman (upright) typeface.
+
+
+\section{Lists}
+
+\subsection{Numbered lists}
+For numbered lists, you should use the \LaTeX\ command
+\begin{verbatim}
+\begin{enumerate}
+\item First item
+\item Second item
+\end{enumerate}
+\end{verbatim}
+in a nested form, and this will produce:
+
+\begin{enumerate}
+\item First item.
+\item Second item.
+\begin{enumerate}
+\item First subitem.
+\item Second subitem.
+\begin{enumerate}
+\item First subsubitem.
+\item Second subsubitem.
+\end{enumerate}
+\item Third subitem.
+\end{enumerate}
+\item Third item.
+\end{enumerate}
+
+\subsection{Bulleted lists}
+For a bulleted list, you can use the command
+\begin{verbatim}
+\begin{itemize}
+\item First item
+\item Second item
+\end{itemize}
+\end{verbatim}
+which will produce:
+
+\begin{itemize}
+\item First item
+\item Second item
+\item Third item
+\end{itemize}
+
+
+\section{References}
+
+Citations should always be made with the \TeX\ command
+\begin{verbatim}\cite{}\end{verbatim}
+Also, when citing several works at the same time, you should use
+\begin{verbatim}\cite{paper1}, \cite{paper2}, \cite{paper3}\end{verbatim}
+as, for example, in \cite{And}, \cite{FrQu}, \cite{Jon}.
+
+It follows a list of references showing you the style in which books and journal articles
+should be listed.
+
+\frenchspacing
+\begin{thebibliography}{7}
+
+\bibitem{And}   S. Bloch -- K. Kato,
+\textit{$L$-functions and Tamagawa numbers of motives},
+ in:  \textit{The Grothendieck Festschrift}, Vol. I,
+ Progr. Math. 86, Birkh\"auser, Boston 1990, P. Cartier, et al., eds.,
+pp. 333--400.
+
+\bibitem{FrQu}
+ J. S. Milne, \textit{Etale cohomology},
+Princeton University Press, 1980.
+
+\bibitem{Jon} F. Cafiero,  \textit{Sui problemi ai limiti relativi ad un'equazione differenziale ordinaria del primo ordine e dipendente da un parametro},
+Rend. Sem. Mat. Univ. Padova,    \textbf{18} (1949), pp. 239--257.
+
+
+\bibitem{Luk} M. A. Seveso, \textit{Stark--Hegner points and Selmer groups of abelian varieties},  PhD thesis,
+University of Milan, Federigo Enriques Department of Mathematics, 2009.
+
+\end{thebibliography}
+
+\end{document} 

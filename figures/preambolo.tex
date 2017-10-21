@@ -1,0 +1,427 @@
+% ########################################
+% GENERAL PACKAGES
+% \usepackage[usenames,dvipsnames]{xcolor}
+
+
+\usepackage{
+   amssymb
+  ,amsfonts
+  ,url
+  ,amsmath
+  ,etex
+  ,stmaryrd
+  ,lettrine
+  ,tikz
+  ,esint
+  ,epigraph
+  ,manfnt
+  ,xspace
+  ,etoolbox
+  ,microtype
+  ,lmodern
+  ,marginnote
+  ,rotating
+  ,datetime
+  ,mathtools
+  ,hyphenat
+  ,newclude}
+
+\def\p{\text{pr}}
+
+\usetikzlibrary{kD}
+\usetikzlibrary{matrix,calc,fit,shapes,positioning}
+
+\usepackage[spanish, greek, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[all,2cell,cmtip]{xy}\UseAllTwocells
+% ########################################
+
+% ########################################
+% STYLING
+\setlength{\epigraphwidth}{0.65\textwidth}
+
+\makeatletter
+  \def\@cite#1#2{[\textbf{#1}\if@tempswa , #2\fi]}
+  \def\@biblabel#1{[\textsf{#1}]}
+\makeatother
+
+\newlength{\seplen}
+\setlength{\seplen}{5pt}
+%
+\newlength{\sepwid}
+\setlength{\sepwid}{.4pt}
+%
+\def\firstblank{\,\rule{\seplen}{\sepwid}\,}
+\def\secondblank{\firstblank\llap{\raisebox{2pt}{\firstblank}}}
+
+\renewcommand{\textbf}[1]{\text{\fontseries{b}\selectfont{\upshape #1}}}
+  \newcommand{\trans}[1]{\textcolor{red}{\bf #1}}
+  \newcommand{\refbf}[1]{\textbf{\ref{#1}}}
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=2pt}
+\setlist[enumerate]{label=(\oldstylenums{\arabic*}), noitemsep, topsep=2pt}
+
+
+\usepackage[cal=boondoxo]{mathalfa}
+% ########################################
+
+% ########################################
+% COMMANDS FOR TEXT
+\def\mho{\rotatebox[origin=c]{180}{$\Omega$}}
+
+\def\proP{\textsc{p}}
+\def\proQ{\textsc{q}}
+\def\proH{\textsc{h}}
+\def\proL{\textsc{l}}
+\def\proK{\textsc{k}}
+\def\proG{\textsc{g}}
+
+\providecommand{\abbrv}[1]{#1.\@\xspace}
+  \providecommand{\ie}{\abbrv{i.e}}
+  \providecommand{\etc}{\abbrv{etc}}
+  \providecommand{\prof}{\abbrv{prof}}
+  \providecommand{\viz}{\abbrv{viz}}
+  \providecommand{\eg}{\abbrv{e.g}}
+  \providecommand{\achap}{\abbrv{Ch}}
+  \providecommand{\adef}{\abbrv{Def}}
+  \providecommand{\aprop}{\abbrv{Prop}}
+  \providecommand{\athm}{\abbrv{Thm}}
+
+\usepackage{CJKutf8}
+
+% The yoneda embedding: the letter "yo" in hiragana
+\newcommand{\yon}{\text{\begin{CJK}{UTF8}{min}よ\end{CJK}}}
+
+\newcommand{\wk}{\textsc{wk}}
+\newcommand{\cof}{\textsc{cof}}
+\newcommand{\fib}{\textsc{fib}}
+
+\def\itsnonsense{\upeyes}
+
+\setcounter{tocdepth}{1} 
+\usepackage[titletoc]{appendix}
+% \usepackage[
+%        a4paper
+%       ,bottom=6cm
+%       ,left=4.2cm
+%       ,right=4.2cm
+%       ,top=4.5cm]{geometry}
+% ########################################
+
+% ########################################
+% COMMANDS FOR MATH
+
+\usepackage{amsthm}
+
+\newtheoremstyle{reference}
+   {}                
+   {}                
+   {}              
+   {}                      
+   {\fontseries{b}\selectfont}              
+   {:}                     
+   {.2em}                  
+   {\thmname{#1}           
+    \thmnumber{#2}         
+    \thmnote{{\sc [#3]}}} 
+
+\theoremstyle{reference}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{remark}[theorem]{Remark}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{notat}[theorem]{Notation}
+  \newtheorem*{acknowledgements}{Acknowledgements}
+  \newtheorem{scholium}[theorem]{Scholium}
+  \newtheorem{counterex}[theorem]{Counterexample}
+  % starred
+  \newtheorem*{theorem*}{Theorem}
+  \newtheorem*{lemma*}{Lemma}
+  \newtheorem*{proposition*}{Proposition}
+  \newtheorem*{example*}{Example}
+  \newtheorem*{exercise*}{Exercise}
+  \newtheorem*{remark*}{Remark}
+  \newtheorem*{definition*}{Definition}
+  \newtheorem*{corollary*}{Corollary}
+  \newtheorem*{notat*}{Notation}
+  \newtheorem*{scholium*}{Scholium}
+  \newtheorem*{counterex*}{Counterexample}
+
+\newcommand{\bDelta}{\pmb\Delta}
+\newcommand{\Dist}{\cate{Relt}}
+\newcommand{\varsSet}{\widehat{\bDelta}}
+\newcommand{\simplex}[1]{{\Delta[#1]}}
+\newcommand{\xto}[2][]{\xrightarrow[#1]{#2}}
+\newcommand{\xot}[2][]{\xleftarrow[#1]{#2}}
+\newcommand{\bsmat}{\left[\begin{smallmatrix}}
+\newcommand{\esmat}{\end{smallmatrix}\right]}
+\renewcommand{\phi}{\varphi}
+\newcommand{\var}[3][]{
+  \left[\begin{smallmatrix} #2 \\ 
+  #1\downarrow \\ #3 
+  \end{smallmatrix}\right]}
+\newcommand{\laxto}{\dashrightarrow}
+\newcommand{\ccirc}{\diamond}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Rift}{Rift}
+\DeclareMathOperator{\Lift}{Lift}
+\DeclareMathOperator{\ob}{Ob}
+\newcommand{\opp}{\text{op}}
+\newcommand{\oo}{\text{oo}}
+\newcommand{\Ex}{\text{Ex}}
+
+\newcommand{\dashlim}{\text{-lim }}
+\providecommand{\defequal}  {\overset{\triangle}{=}}
+
+\newcommand{\cate}[1]{\text{\fontseries{b}\selectfont{#1}}}
+  \newcommand{\A}     {\cate{A}}
+  \newcommand{\B}     {\cate{B}}
+  \newcommand{\C}     {\cate{C}}
+  \newcommand{\Cat}   {\cate{Cat}}
+  \newcommand{\Gpd}   {\cate{Gpd}}
+  \newcommand{\D}     {\cate{D}}
+  \newcommand{\K}     {\cate{K}}
+  \renewcommand{\P}   {\cate{P}}
+  \newcommand{\catS}  {\cate{S}}
+  \newcommand{\Sets}  {\cate{Sets}}
+  \newcommand{\Set}   {\cate{Sets}}
+  \newcommand{\sSet}  {\cate{sSet}}
+
+  \newcommand{\N}{\mathbb{N}}
+  \newcommand{\Z}{\mathbb{Z}}
+
+  \newcommand{\Top}   {\cate{Top}}
+  \newcommand{\E}     {\mathcal{E}}
+  \renewcommand{\L}   {\mathcal{L}}
+  \newcommand{\M}     {\mathcal{M}}
+  \newcommand{\R}     {\mathcal{R}}
+  \newcommand{\V}     {\mathcal{V}}
+  \newcommand{\tee}     {\mathfrak{t}}
+  \newcommand{\T}     {\mathfrak{T}}
+  \newcommand{\VCat}  {\V\text{-}\Cat}
+
+\def\Nat{\textsf{Nat}}
+\def\Fun{\textsf{Fun}}
+\def\LNat{\textsf{LNat}}
+\def\bemo{\flat}
+\def\diesis{\sharp}
+\newcommand{\pto}{\leadsto}
+\newcommand{\wlim}[1]{{\textstyle \varprojlim^{#1}}}
+\newcommand{\wcolim}[1]{{\textstyle \varinjlim^{#1}}}
+\newcommand{\hocolim}{\underrightarrow{\text{holim}}\,}
+\newcommand{\holim}{\underleftarrow{\text{holim}}\,}
+\newcommand{\elts}[2]{#1\!\int\! #2}
+\newcommand{\tw}{\textsc{tw}}
+
+\newcommand{\twoint}{\sqint}
+% {\mathchoice%
+% {\ooalign{$\infty$\cr\hfil$\displaystyle\int$\hfil}}%display
+% {\ooalign{$\scriptstyle\infty$\cr\hfil$\int$\hfil}}%text
+% {\ooalign{$\scriptscriptstyle\infty$\cr\hfil$\scriptstyle\int$\hfil}}%script
+% {\ooalign{$\scriptscriptstyle\infty$\cr\hfil$\scriptscriptstyle\int$\hfil}}}%script^2
+\newcommand{\infint}{\oint}
+
+% ########################################
+
+% ########################################
+% ALTRO
+% DECOMMENTA X HYPHENS
+% \tracingparagraphs=1
+% \tracingonline=1
+% \input{ipenate}
+
+\newcommand{\arXivPreprint}[1]{arXiv preprint \href{http://arxiv.org/abs/#1}{arXiv:#1}}
+
+
+\newcommand{\standard}{
+\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw (1,0) .. controls (1,.5) and (1.5,.5) .. (1.5,0);
+\draw (1,1) .. controls  (1,.5) and (1.5,.5) .. (1.5,1);
+}
+
+\newcommand{\standardbis}[3]{
+\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw[#1] (.5,0) -- (.5,1);
+\draw[#2] (1,0) .. controls (1,.5) and (1.5,.5) .. (1.5,0);
+\draw[#3] (1,1) .. controls  (1,.5) and (1.5,.5) .. (1.5,1);
+}
+
+\newcommand{\first}[1]{\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw[xshift=.5cm] (.5,0)  -- (.5,1);
+\draw[xshift=1cm] (.5,0)-- (.5,1);
+\filldraw[lightgray!70] (.5,.5) circle (6pt) node[black] {$ #1 $};}
+\newcommand{\second}[1]{\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw[xshift=.5cm] (.5,0)  -- (.5,1);
+\draw[xshift=1cm] (.5,0)-- (.5,1);
+\filldraw[lightgray!70] (1,.5) circle (6pt) node[black] {$ #1 $};}
+\newcommand{\third}[1]{\draw[ultra thin] (0.25,0) -- (1.75,0) -- (1.75,1) -- (0.25,1) -- cycle;
+\draw (.5,0) -- (.5,1);
+\draw[xshift=.5cm] (.5,0)  -- (.5,1);
+\draw[xshift=1cm] (.5,0)-- (.5,1);
+\filldraw[lightgray!70] (1.5,.5) circle (6pt) node[black] {$ #1 $};}
+
+
+%%%%%%%%%%%%%%%%%%
+
+\newcommand{\upeyes}{%
+  \begin{tikzpicture}
+  \draw circle (3pt);
+  \draw[fill,yshift=1.5pt] circle (1.5pt);
+  \begin{scope}[xshift=7pt]
+  \draw circle (3pt);
+  \draw[fill,yshift=1.5pt] circle (1.5pt);
+  \end{scope}
+  \end{tikzpicture}%
+}
+
+\newcommand{\downeyes}{%
+  \begin{tikzpicture}
+  \draw circle (3pt);
+  \draw[fill,yshift=-1.5pt] circle (1.5pt);
+  \begin{scope}[xshift=7pt]
+  \draw circle (3pt);
+  \draw[fill,yshift=-1.5pt] circle (1.5pt);
+  \end{scope}
+  \end{tikzpicture}%
+}
+
+\newcommand{\righteyes}{%
+  \begin{tikzpicture}
+  \draw circle (3pt);
+  \draw[fill,xshift=1.5pt] circle (1.5pt);
+  \begin{scope}[xshift=7pt]
+  \draw circle (3pt);
+  \draw[fill,xshift=1.5pt] circle (1.5pt);
+  \end{scope}
+  \end{tikzpicture}%
+}
+
+\newcommand{\awful}{%
+   \begin{tikzpicture}
+   \draw circle (3pt);
+   \draw[fill] circle (1.5pt);
+   \begin{scope}[xshift=7pt]
+   \draw circle (3pt);
+   \draw[fill] circle (1.5pt);
+   \end{scope}
+   \end{tikzpicture}%
+}
+
+
+% ########################################
+
+% ########################################
+% ALCUNE COSE VANNO SEMPRE IN FONDO
+
+\usepackage{hyperref}
+\hypersetup{%
+  pdftoolbar=   true,
+  pdfmenubar=   true,
+  pdffitwindow= true,
+  pdftitle=     {This is the co/end},
+  pdfauthor=    {F. Loregian},
+  colorlinks=   true,
+  linkcolor=    black,
+  citecolor=    Magenta}
+
+% ########################################
+
+\def\[{\begin{equation}}
+\def\]{\end{equation}}
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\makeatletter
+\def\exerciseboxtag{
+  \useasboundingbox (P) rectangle (P);
+  \node at (P-|O) [
+      draw=black!70,
+      line width=.4pt,
+      fill=black!2,
+      rectangle,
+      rounded corners=2pt,
+      inner sep=.3em,
+      anchor=west,
+      xshift=3em,
+      font=\mdf@frametitlefont,
+      execute at begin node=\strut~,
+      execute at end node=~
+  ] {Exercises for \S\thesection};
+}
+\makeatother
+
+\mdfdefinestyle{exstyle}{%
+  % these two account for spacing around the tag:
+  skipabove=1.6em, innertopmargin=1.6em,
+  middlelinewidth=.4pt,
+  roundcorner=1.6pt,
+  linecolor=black!80,
+  backgroundcolor=black!2,
+  frametitlefont=\bfseries,
+  % settings={\global\stepcounter{question}},
+  singleextra={\exerciseboxtag},
+  firstextra={\exerciseboxtag}
+}
+
+\newenvironment{exerciseset}
+  {\begin{mdframed}[style=exstyle]\footnotesize}
+  {\end{mdframed}}
+
+\allowdisplaybreaks
+
+\usepackage{enumitem}
+\newlist{exercisepoints}{enumerate}{1}
+\setlist[exercisepoints]{
+  label={\sffamily\mdseries E\arabic*.},
+  leftmargin=2em,
+  % before=\raggedright
+}
+
+
+
+% \tikzstyle{title} =
+%     [draw=lightgray, thick, fill=lightgray,% 
+%         text=black, rectangle,  
+%         right, minimum height=.4cm]
+
+% \newcommand*\theex{Exercises for \S\thesection}
+% \makeatletter
+% \mdfdefinestyle{exstyle}{%
+%     leftmargin=1em,%
+%     rightmargin=1em,%
+%     middlelinewidth=1.2pt,%
+%     roundcorner=5pt,%
+%     linecolor=lightgray,%
+%     backgroundcolor=lightgray!20,%
+%     innertopmargin=1.2\baselineskip,%
+%     skipabove=2em,%
+%     skipbelow=1em,%
+%     needspace=1em,%
+%     frametitlefont=\sffamily\bfseries,%
+%     %settings={\global\stepcounter{question}},%
+%     singleextra={%
+%         \useasboundingbox (P) rectangle (P);
+%         \node[title,xshift=1cm] at (P-|O) %
+%             {\mdf@frametitlefont{\theex}~};},%
+%     firstextra={%
+%         \useasboundingbox (P) rectangle (P);
+%             \node[title,xshift=1cm] at (P-|O) %
+%                     {~\mdf@frametitlefont{\theex}~};},
+% }
+% \makeatother
+% \newenvironment{exerciseset}%
+% {\begin{mdframed}[style=exstyle]\footnotesize}%
+% {\end{mdframed}}

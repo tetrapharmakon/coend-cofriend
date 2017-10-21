@@ -1,0 +1,15 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh={.5cm}{8em}]{
+	\obj (Cat2):\Cat\times\Cat; & \obj (Cat):\Cat; & \obj \sSet; & \obj (Topos):\cate{Topos};\\
+	\obj (A):(\cate{X}, \cate{Y}); & \obj (B):\cate{X}\star \cate{Y}; & \obj (C):\Cat(\Delta^\bullet, \cate{X}\star \cate{Y}); & \obj (D):\cate{X} \oast \cate{Y};\\
+};
+\mor Cat2 \star:-> Cat N:-> sSet {\Lan_\yon(\delta)}:-> Topos;
+\draw[|->] (A) to (B);
+\draw[|->] (B) to (C);
+\draw[|->] (C) to (D);
+\end{tikzpicture}
+\end{document}

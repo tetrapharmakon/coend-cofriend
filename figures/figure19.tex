@@ -1,0 +1,15 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 19
+\begin{kD}
+\lattice[mesh={5em}{11em}]{
+\obj (E):\cate{E}; & \obj \hom(Fa,Ga); \\
+\obj \hom(Fa',Ga'); & \obj \hom(Fa,Ga');\\
+};
+\mor E \tau_a:-> {hom FaGa} G(f)_*:-> {hom FaGa'};
+\mor[swap] * \tau_{a'}:-> {hom Fa'Ga'} F(f)^*:-> *;
+\mor[/kD/chop=.3|*|.3] {hom FaGa} \tau_f:2-> {hom Fa'Ga'};
+\end{kD}
+\end{document}

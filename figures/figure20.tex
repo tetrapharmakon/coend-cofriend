@@ -1,0 +1,15 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 20
+\begin{kD}
+\lattice[comb=5em]{
+  \obj a; & \obj a'; \\
+  & \obj c.; \\
+};
+\mor a h:-> a' u':-> c;
+\mor[swap] a u:-> c;
+\mor[/kD/chop=.3|*|.3] a' \alpha:2-> u;
+\end{kD}
+\end{document}

@@ -1,0 +1,17 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh={3em}{4em}]{
+	&&&\obj x;& \\
+	\obj b; && \obj (ist):\textsf{Ist}(f,g); && \obj y; \\
+	&&& \obj (x2):x;&\\
+};
+\mor b h:dashed,-> ist p:-> x f:-> y;
+\mor[swap] ist p:-> x2 g:-> y;
+\mor b q:r> x;
+\mor[swap] * q:L> x2;
+\mor[/kD/chop=.3|*|.3] x \lambda:2-> x2;
+\end{tikzpicture}
+\end{document}

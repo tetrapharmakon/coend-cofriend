@@ -1,0 +1,18 @@
+\documentclass[margin=1mm]{standalone}
+\input preambolo
+
+\begin{document}
+\begin{kD}
+\lattice[mesh={4em}{8em}]{
+	\obj (D2):\bDelta\times\bDelta; & \obj (sSet2):\sSet\times\sSet; & \obj \sSet;\\
+	\obj \bDelta;\\
+	\obj (sSet'):\sSet;\\
+};
+\mor D2 {\yon_{\bDelta}\times\yon_{\bDelta}}:-> sSet2 \times:-> sSet;
+\mor[swap] D2 \oplus:-> bDelta {\yon_{\bDelta}}:-> sSet' \textsf{Sd}:L> sSet;
+\mor[bend right=10] bDelta \textsf{sd}:-> sSet;
+\node (mid) at ($(D2)!.5!(bDelta)$) {};
+\mor[shift=1mm,/kD/chop=.3|*|.3] sSet2 2-> bDelta;
+\mor[shift=-3mm,/kD/chop=.3|*|.3] sSet 2-> sSet';
+\end{kD}
+\end{document}

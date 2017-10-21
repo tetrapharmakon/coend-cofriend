@@ -1,0 +1,15 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{kD}
+\lattice[goldcomb]{
+\obj x; &\\
+\obj b; & \obj y;\\
+ \obj (x2):x; &\\
+};
+\mor b q:-> x f:-> y;
+\mor[swap] * q:-> x2 g:-> *;
+\mor[/kD/chop=.3|*|.3] x \mu:2-> x2;
+\end{kD}
+\end{document}

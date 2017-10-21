@@ -1,0 +1,28 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 17
+\begin{kD}
+\lattice[mesh={6em}{9em}]{
+\obj B; & \obj S(a',a'); \\
+\obj S(a,a); & \obj S(a,a'); \\
+};
+\mor[swap] B (s):\sigma_a:L> Saa S(a,f):-> Saa';
+\mor * \omega_{a'}:-> Sa'a' S(f,a'):-> *;
+\mor * (w):\omega_a:r> Saa;
+\mor[/kD/chop=.3|*|.3] w \Theta_a:2-> s;
+\mor[/kD/chop=.3|*|.3] Sa'a' \omega_f:2-> Saa;
+\begin{scope}[xshift=15em]
+\lattice[mesh={6em}{9em}]{
+\obj B; & \obj S(a',a'); \\
+\obj S(a,a); & \obj S(a,a'); \\
+};
+\mor[swap] B (sR):\sigma_a:-> Saa S(a,f):-> Saa';
+\mor * swap,(s'R):\sigma_{a'}:L> Sa'a' (Sfa'R):S(f,a'):-> Saa';
+\mor * (w'):\omega_{a'}:r> Sa'a';
+\mor[/kD/chop=.3|*|.3] w' \Theta_{a'}:2-> s'R;
+\mor[/kD/chop=.3|*|.3] Sa'a' \sigma_f:2-> Saa;
+\end{scope}
+\end{kD}
+\end{document}

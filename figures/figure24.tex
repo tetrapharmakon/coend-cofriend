@@ -1,0 +1,12 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 24 
+\begin{kD}
+\lattice[mesh={1em}{12em}]{
+\obj (A):{ \{F,F\}\diamond \{F,F\}\diamond F }; & \obj (B):{\{F,F\}\diamond F}; & \obj F; \\
+};
+\mor A {1\diamond\text{ev}}:-> B {\text{ev}}:-> F;
+\end{kD}
+\end{document}

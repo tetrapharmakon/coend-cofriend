@@ -1,0 +1,122 @@
+\usepackage[cal=boondoxo]{mathalfa}
+
+
+\setlength{\epigraphwidth}{0.65\textwidth}
+
+\makeatletter
+  \def\@cite#1#2{[\textbf{#1}\if@tempswa , #2\fi]}
+  \def\@biblabel#1{[\textsf{#1}]}
+\makeatother
+
+\newlength{\seplen}
+\setlength{\seplen}{5pt}
+%
+\newlength{\sepwid}
+\setlength{\sepwid}{.4pt}
+%
+\def\firstblank{\,\rule{\seplen}{\sepwid}\,}
+\def\secondblank{\firstblank\llap{\raisebox{2pt}{\firstblank}}}
+
+\renewcommand{\textbf}[1]{\text{\fontseries{b}\selectfont{\upshape #1}}}
+  \newcommand{\trans}[1]{\textcolor{red}{\bf #1}}
+  \newcommand{\refbf}[1]{\textbf{\ref{#1}}}
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=2pt}
+\setlist[enumerate]{label=(\oldstylenums{\arabic*}), noitemsep, topsep=2pt}
+
+\setcounter{tocdepth}{1} 
+\usepackage[titletoc]{appendix}
+\usepackage[
+       a4paper
+      ,bottom=6cm
+      ,left=4.2cm
+      ,right=4.2cm
+      ,top=4.5cm]{geometry}
+
+\usepackage{amsthm}
+
+\newtheoremstyle{reference}
+   {}                
+   {}                
+   {}              
+   {}                      
+   {\fontseries{b}\selectfont}              
+   {:}                     
+   {.2em}                  
+   {\thmname{#1}           
+    \thmnumber{#2}         
+    \thmnote{{\sc [#3]}}} 
+
+\theoremstyle{reference}
+  \newtheorem{theorem}{Theorem}[section]
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \newtheorem{example}[theorem]{Example}
+  \newtheorem{exercise}[theorem]{Exercise}
+  \newtheorem{remark}[theorem]{Remark}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{notat}[theorem]{Notation}
+  \newtheorem*{acknowledgements}{Acknowledgements}
+  \newtheorem{scholium}[theorem]{Scholium}
+  \newtheorem{counterex}[theorem]{Counterexample}
+  % starred
+  \newtheorem*{theorem*}{Theorem}
+  \newtheorem*{lemma*}{Lemma}
+  \newtheorem*{proposition*}{Proposition}
+  \newtheorem*{example*}{Example}
+  \newtheorem*{exercise*}{Exercise}
+  \newtheorem*{remark*}{Remark}
+  \newtheorem*{definition*}{Definition}
+  \newtheorem*{corollary*}{Corollary}
+  \newtheorem*{notat*}{Notation}
+  \newtheorem*{scholium*}{Scholium}
+  \newtheorem*{counterex*}{Counterexample}
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\makeatletter
+\def\exerciseboxtag{
+  \useasboundingbox (P) rectangle (P);
+  \node at (P-|O) [
+      draw=black!70,
+      line width=.4pt,
+      fill=black!2,
+      rectangle,
+      rounded corners=2pt,
+      inner sep=.3em,
+      anchor=west,
+      xshift=3em,
+      font=\mdf@frametitlefont,
+      execute at begin node=\strut~,
+      execute at end node=~
+  ] {Exercises for \S\thesection};
+}
+\makeatother
+
+\mdfdefinestyle{exstyle}{%
+  % these two account for spacing around the tag:
+  skipabove=1.6em, innertopmargin=1.6em,
+  middlelinewidth=.4pt,
+  roundcorner=1.6pt,
+  linecolor=black!80,
+  backgroundcolor=black!2,
+  frametitlefont=\bfseries,
+  % settings={\global\stepcounter{question}},
+  singleextra={\exerciseboxtag},
+  firstextra={\exerciseboxtag}
+}
+
+\newenvironment{exerciseset}
+  {\begin{mdframed}[style=exstyle]\footnotesize}
+  {\end{mdframed}}
+
+\allowdisplaybreaks
+
+\newlist{exercisepoints}{enumerate}{1}
+\setlist[exercisepoints]{
+  label={\textbf{E\arabic*}},
+  leftmargin=2em,
+  % before=\raggedright
+}

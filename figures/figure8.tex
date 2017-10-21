@@ -1,0 +1,16 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+\begin{tikzpicture}
+\lattice[mesh]{
+	\obj (fun):\textsf{Fun}(\C^\opp, \Cat); \\
+	\obj (lax):\textsf{LFun}(\C^\opp, \Cat); \\
+};
+\mor fun (incl)::-> lax;
+\mor[shift=1.3em,swap] lax (bem):{(\firstblank)^\bemo}:-> fun;
+\mor[shift=-1.3em] lax (dies):{(\firstblank)^\diesis}:-> fun;
+\obj at=($(bem)!.5!(incl)$):\dashv;
+\obj at=($(incl)!.6!(dies)$):\dashv;
+\end{tikzpicture}
+\end{document}

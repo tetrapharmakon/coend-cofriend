@@ -1,0 +1,13 @@
+\documentclass[margin=1mm]{standalone}
+\input preambolo
+
+\begin{document}
+\begin{kD}
+\lattice[mesh={4em}{9em}]{
+	\obj (copreop):[\C, \V]^\opp; & \obj (pre):[\C^\opp, \V].; \\
+};
+\mor[shift=2mm] pre swap:\mathcal{O}:-> copreop;
+\mor[shift=2mm] copreop swap:\textsf{Spec}:-> pre;
+\node (adj) at ($(pre)!.5!(copreop)$) {$\perp$};
+\end{kD}
+\end{document}

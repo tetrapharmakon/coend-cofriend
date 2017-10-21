@@ -1,0 +1,61 @@
+% tikzlibrarykD.code.tex
+%
+% Copyright 2015 by Paolo Brasolin <paolo.brasolin@gmail.com>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+% ######################################################################## SOF #
+
+% =============================================================== DEPENDENCIES =
+
+\usepackage{totcount}
+
+\usetikzlibrary[calc]
+
+\usetikzlibrary[decorations.pathreplacing]
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary[decorations.markings]
+
+\usetikzlibrary[arrows.meta]
+
+\usetikzlibrary[kD.bugfixes]
+\usetikzlibrary[kD.helpers]
+
+\usetikzlibrary[kD.balancer]
+\usetikzlibrary[kD.cleanser]
+
+\usetikzlibrary[kD.core]
+
+% ================================================================ ENVIROMENTS =
+\newcounter{koDi}%[part]
+%\setcounter{koDi}{0}
+%\newcounter{sol}
+\regtotcounter{koDi}
+
+
+
+
+% (La)TeX
+\def\kD{\tikzpicture[baseline=(current  bounding  box.center)]}
+\def\endkD{\stepcounter{koDi}\endtikzpicture}
+\let\commutativediagram\kD
+\let\endcommutativediagram\endkD
+
+% ConTeXt
+\def\startkD{\starttikzpicture}
+\def\stopkD{\stoptikzpicture}
+\let\startcommutativediagram\startkD
+\let\stopcommutativediagram\stopkD
+
+% ######################################################################## EOF #

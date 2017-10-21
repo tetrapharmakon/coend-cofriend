@@ -1,0 +1,15 @@
+\documentclass[margin=0cm]{standalone}
+\input{preambolo}
+
+\begin{document}
+% 14
+\begin{kD}
+\lattice[mesh={4em}{6em}]{
+\obj B; & \obj S(a,a); \\
+\obj S(a',a'); & \obj S(a,a'); \\
+};
+\mor B \omega_a:-> Saa S(a,f):-> Saa';
+\mor[swap] * \omega_{a'}:-> Sa'a' S(f,a'):-> Saa';
+\mor[/kD/chop=.3|*|.3] Saa \omega_f:2-> Sa'a';
+\end{kD}
+\end{document}
