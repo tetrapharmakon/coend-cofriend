@@ -1,6 +1,7 @@
 # cd figures
 # ./MAKEFIG
 # cd ..
+tex -v | head -n 1 > version.tex
 latexmk -c
 latexmk -pdf ends
 latexmk -c
