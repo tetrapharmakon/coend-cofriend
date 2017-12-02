@@ -191,10 +191,10 @@ Lax limits commute: if $T\colon \B\times \C\to \D$ is a 2-functor, we have
 \begin{center}
 \includegraphics[scale=1]{figures/fig8}
 \end{center}
-This means that for each strict 2-functor $H\in \textsf{Fun}(\C^\opp, \Cat)$ there are two natural isomorphisms
+This means that for each strict 2-functor $H\in \Cat(\C^\opp, \Cat)$ there are two natural isomorphisms
 \begin{gather}
-\textsf{Fun}(\C^\opp, \Cat)(H, F^\bemo) \cong \textsf{LFun}(\C^\opp, \Cat)(H,F),\notag \\
-\textsf{Fun}(\C^\opp, \Cat)(F^\diesis, H)\cong \textsf{LFun}(\C^\opp, \Cat)(F,H)
+\Cat(\C^\opp, \Cat)(H, F^\bemo) \cong \textsf{LFun}(\C^\opp, \Cat)(H,F),\notag \\
+\Cat(\C^\opp, \Cat)(F^\diesis, H)\cong \textsf{LFun}(\C^\opp, \Cat)(F,H)
 \end{gather}
 where the functors $F^\bemo$ and $F^\diesis$ are defined by the lax coends
 \[
@@ -204,14 +204,14 @@ F^\bemo \cong \twoint_a Fa^{\C(a,\firstblank)}.
 \begin{proof}
 The proof exploits Example \refbf{laxnat} as well as the commutation of co/ends and lax co/ends, the preservation of lax co/ends by the hom functor, and the strict ninja Yoneda lemma:
  \begin{align*}
- \textsf{Fun}(\C^\opp,\Cat)(H, F^\bemo) & = \int_c \Cat(Hc, F^\bemo c) \\
+ \Cat(\C^\opp,\Cat)(H, F^\bemo) & = \int_c \Cat(Hc, F^\bemo c) \\
 & = \int_c \Cat \left(Hc, \twoint_a \Cat(\C(a,c), Fa) \right)\\
  & \cong \int_c \twoint_a \Cat(Hc, \Cat(\C(a,c), Fa)) \\
  & \cong \twoint_a \int_c \Cat(Hc\times \C(a,c), Fa) \\
  & \cong \twoint_a \Cat\left( \int^c Hc \times \C(a,c), Fa \right)\\
  & \cong \twoint_a \Cat(Ha, Fa) \overset{(\refbf{laxnat})}= \textsf{LFun}(\C^\opp, \Cat)(H,F).
  \end{align*}
-The proof that $\textsf{Fun}(\C^\opp, \Cat)(F^\diesis, H)\cong \textsf{LFun}(\C^\opp, \Cat)(F,H)$ is done in a similar fashion.
+The proof that $\Cat(\C^\opp, \Cat)(F^\diesis, H)\cong \textsf{LFun}(\C^\opp, \Cat)(F,H)$ is done in a similar fashion.
 \end{proof}
 \begin{example}
 Let $\textbf{1}\colon \C^\opp\laxto \Cat$ be the functor sending $c\in\C$ into the terminal category, regarded as a lax functor. Then the strict functor $\textbf{1}^\diesis \colon \C^\opp\to \Cat$ is the lax coend
@@ -291,7 +291,7 @@ We call \emph{(left) quasi-Kan extension} of $\varphi$ along $T$ a 2-functor $\L
 \]
 and moreover, if $\Sigma\colon \lambda \Rrightarrow \lambda'$ is a modification between quasi-natural transformations, there is a unique modification $\Omega\colon \zeta\Rrightarrow \zeta'$ (where $\zeta$ is induced by $\lambda$, and $\zeta'$ by $\lambda'$) between $\Cat$-natural transformations such that $(\Omega * T)\circ \alpha = \Sigma$. This can be expressed with the isomorphism
 \[
-\Fun(\A, \C)\Big[ \varphi, S\circ T \Big]\cong \C^{\B}\Big[ \Lan_T\varphi, S \Big]
+\Cat(\A, \C)\Big[ \varphi, S\circ T \Big]\cong \C^{\B}\Big[ \Lan_T\varphi, S \Big]
 \]
 which is natural in $S$.
 \end{definition}
@@ -359,7 +359,7 @@ These are respectively a co/end calculus \emph{applied to} model categories and 
 % \begin{remark}
 % The real content of \cite{Gamb}
 % \end{remark}
-\begin{remark}
+\begin{remark}\label{coend_is_quillen}
 Let $\boxtimes \colon \A \times \B \to \C$ be the \textsc{t} part of a \textsc{thc} situation (see \refbf{tiaccaci}), which is moreover left Quillen, and let $\mathcal{I}$ be a Reedy category (\cite[\adef\textbf{5.2.1}]{Hov}). Then the coend functor
 \[
 \int \colon \Cat(\mathcal{I}^\opp,\A) \times \Cat(\mathcal{I},\B) \to \C

@@ -27,7 +27,7 @@ We denote these adjunctions
 \[
 \Lan_\yon i\dashv N_i \text{ and } \Lan_\yon \rho\dashv N_\rho;
 \] 
-these two right adjoint functors are called the \emph{nerves} associated to $i$ and $\rho$ respectively, and are defined, respectively, sending a category $\C$ to the simplicial set $N_i(\C)\colon [n]\mapsto \textsf{Fun}(i[n],\C)$ (the \emph{classical nerve} of a category), and to the simplicial set $N_\rho(X)\colon[n]\mapsto \Top(\rho[n], X) = \Top(\Delta^n, X)$ (the \emph{singular complex} of a space $X$).\footnote{The name is motivated by the fact that if we consider the free-abelian group on $N_\rho(X)_n$, the various $C_n = \Z\cdot N_\rho(X)_n = \coprod_{ N_\rho(X)_n}\Z$ organize as a chain complex, whose homology is precisely the singular homology of $X$.}
+these two right adjoint functors are called the \emph{nerves} associated to $i$ and $\rho$ respectively, and are defined, respectively, sending a category $\C$ to the simplicial set $N_i(\C)\colon [n]\mapsto \Cat(i[n],\C)$ (the \emph{classical nerve} of a category), and to the simplicial set $N_\rho(X)\colon[n]\mapsto \Top(\rho[n], X) = \Top(\Delta^n, X)$ (the \emph{singular complex} of a space $X$).\footnote{The name is motivated by the fact that if we consider the free-abelian group on $N_\rho(X)_n$, the various $C_n = \Z\cdot N_\rho(X)_n = \coprod_{ N_\rho(X)_n}\Z$ organize as a chain complex, whose homology is precisely the singular homology of $X$.}
 
 The left adjoints to $N_\rho$ and $N_i$ must be thought as ``realizations'' of a simplicial set as an object of $\Top$ or $\Cat$:
 \begin{itemize}
@@ -98,9 +98,9 @@ If we define $N_\varphi(d)$ to be $c\mapsto \D(\varphi c,d)$, this last set beco
 \begin{remark}
 The nerve\hyp{}realization paradigm can be rewritten in the following equivalent form: there is an equivalence of categories, induced by the universal property of the Yoneda embedding, 
 \[
-\textsf{Fun}(\C, \D)\cong \text{RAdj}(\widehat{\C}, \D)
+\Cat(\C, \D)\cong \text{RAdj}(\widehat{\C}, \D)
 \]
-whenever $\D$ is a cocomplete locally small category (in such a way that ``the category of nerve\hyp{}realization contexts'' is a high-sounding name for the category of functors $\textsf{Fun}(\C, \D)$).
+whenever $\D$ is a cocomplete locally small category (in such a way that ``the category of nerve\hyp{}realization contexts'' is a high-sounding name for the category of functors $\Cat(\C, \D)$).
 \end{remark}
 A famous result in Algebraic Topology (see for example \cite{GZ, GoJ}) says that the geometric realization functor $R\colon \sSet\to\cate{Top}$ commutes with finite products: coend calculus gives a massive simplification of this result.
 \begin{proof}
