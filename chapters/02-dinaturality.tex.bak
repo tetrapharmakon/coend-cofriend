@@ -19,7 +19,7 @@ X^{B'}\times B' \ar[r]_{\epsilon}& X
 \]
 This relation however doesn't remind naturality so much. We address the reader also to Exercise \textbf{2}  at the end of \cite[\textbf{IV.7}]{McL} and our Exercise \textbf{1}.\refbf{ex1:counit.is.cowedge}: it is easy to show that this commutativity is what remains when the naturality in $B$ of the adjunction $\Sets(A\times B,C)\cong \Sets(A, C^B)$ is imposed.% implies a more complicated dependence on the variable $B$.
 
-It would seem that there's no way to frame the diagram above in the usual context of naturality for a transformation of functors. Fortunately, a suitable generalization of naturality (a ``super-naturality'' condition), encoding the above commutativity, is available to describe this and other similar phenomena.
+It owuld seem that there's no way to frame the diagram above in the usual context of naturality for a transformation of functors. Fortunately, a suitable generalization of naturality (a ``super-naturality'' condition), encoding the above commutativity, is available to describe this and other similar phenomena.
 \begin{definition}[Dinatural Transformation]
 Given two functors $P,Q\colon \C^\opp\times \C\to \D$ a \emph{dinatural transformation}, depicted as an arrow $\alpha\colon P\xto{..} Q$, consists of a family of arrows $\{\alpha_c\colon P(c,c)\to Q(c,c)\mid c\in\C\}$ such that for any $f\colon c\to c'$ the following hexagonal diagram commutes
 \[

@@ -54,7 +54,7 @@ Hence, the value --if any-- of this work lies, rather than in the originality of
 
 Our aim is then threefold: 
 \begin{itemize}
-	\item Fill a gap in the existing literature on category theory: the vast amount of written and video-graphic material on category theory was lacking a monographic account of this relatively big piece of basic theory; the author hopes the present document serves (at least partly) this purpose. 
+	\item Fill a gap in the existing literature on category theory: the vast amount of written and videographic material on category theory was lacking a monographic account of this relatively big piece of basic theory; the author hopes the present document serves (at least partly) this purpose. 
 	\item Serve as a starting point for beginners: the inexperienced reader (either the beginner in the study of category theory, or the ones who exhausted the ``primary'' topics of their education) can hopefully find in this note a guide to familiarize with an extraordinarily valuable tool-set producing a large number of \emph{sterile}\footnote{We take the word sterile, from \cite{Leinster-cafe}, as ``\emph{Sterile} doesn't only mean infertile or unproductive. It's also what you want surgical instruments to be: clean, uncontaminated, disease-free.''} proofs, most of which are ``formally formal'' (although maybe not ``trivially trivial'') strings of natural isomorphisms.
 	\item Finally, it is the author's firm opinion that to a master in co/end-fu category theory seems easier and funnier: but even several people inside category theory underestimate the descriptive power of this art. We hope this document could help even some experienced mathematicians working nearby category theory, that are never been exposed to this beautiful machinery, and despise it because they have never seen its beauty.
 \end{itemize}
@@ -74,7 +74,7 @@ Maybe it's not a coincidence that the one you are about to see is \emph{another}
 
 This rather common choice has nevertheless subtle consequences: as it is recorded in \cite{low2013universes} the existence and good behaviour of some co/limits and Kan extensions critically depends from the particular choice of a universe. We somehow follow a common tradition in avoiding any kind of reference to these problems, also because at least in some situations it is still possible to sweep this problem under sufficiently big a carpet, appealing suitable ``boundedness'' conditions. There are in fact very few places where this remark could become a real issue (generally speaking, a problem arises anytime you want to perform a Kan extension along a functor defined over a non small category).
 
-\subsection*{Notation.} Having to deal with a large amount of different sources, we abandoned the hope to maintain a choice of notation which is at the same time expressive and simple.
+\subsection*{Notation.} Having to deal with a large amount of different sources, we abandoned the hope to mantain a choice of notation which is at the same time expressive and simple.
 
 Several kinds of categorical structures (categories, and often also 2\hyp{}categories and bicategories, as well as instances of higher categories) will be denoted as boldface letters $\C,\D,\dots$; the context, or mere common sense, always clarifies for which value of $n$ we are doing $n$\hyp{}category theory. 
 
