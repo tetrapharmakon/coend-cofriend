@@ -33,7 +33,7 @@ P(c',c') \ar[r]_{\alpha_{c'}} & Q(c',c') \ar[r]_{Q(f, c')} & Q(c,c')
 \begin{definition}[Wedge for a functor]
 Let $P\colon \C^\opp\times\C\to\D$; a \emph{wedge} for $P$ is a dinatural transformation $\Delta_d\xto{..}P$ from the constant functor on the object $d\in\D$ (we often denote it simply by $d\colon \C^\opp\times\C\to\D$), defined by the rules $(c,c')\mapsto d$,  $(f,f')\mapsto \id_d$.
 \end{definition}
-Wedges for a given functor $P$ form the class of objects of a category $\textsc{wd}(P)$; see Exercise \textbf{1}.\ref{wedgecat}.
+Wedges for a given functor $P$ form the class of objects of a category $\textsc{wd}(P)$; see Exercise \textbf{1}.\refbf{wedgecat}.
 \begin{definition}[End of a functor]
 The \emph{end} of a functor $F\colon\C^\opp\times\C\to \D$ consists of a terminal wedge $\eend(F) \xto{..}F$; the constant $\eend(F) \in \D$ itself is often termed \emph{the end} of the functor.
 \end{definition}
@@ -59,7 +59,7 @@ F(c,c) \ar[ur]\ar[rr]&& F(c,c')\ar[ur]
 This implies that taking sending a functor $T$ into its end $\eend(T)$ is a (covariant) functor $[\C^\opp\times \C,\D]\to \D$. 
 \end{remark}
 \begin{remark}[Coends]
-Exercise \textbf{1}.\ref{ex1:defcoend} provides us with the dual notion of a \emph{coend} as an \emph{initial cowedge} for $P$; the reader is invited to fill in the details. As a general rule, when dealing with dualizable statements we will not spell out explicitly such dualizations, because they are almost always quite straightforward.
+Exercise \textbf{1}.\refbf{ex1:defcoend} provides us with the dual notion of a \emph{coend} as an \emph{initial cowedge} for $P$; the reader is invited to fill in the details. As a general rule, when dealing with dualizable statements we will not spell out explicitly such dualizations, because they are almost always quite straightforward.
 \end{remark}
 \subsection{Extranaturality}
 A slightly less general, but better behaved notion of super-naturality (we say ``better behaved'' since it admits a \emph{graphical calculus} translating commutativity\hyp{}checking into checking that certain string diagrams can be deformed one into the other), that allows again to define co/wedges, is available: this notion is called \emph{extra-naturality} and it was introduced in \cite{eilenberg1966generalization}.
@@ -100,9 +100,9 @@ Q(a, c', c') \ar[r]_{Q(a,h,c')}& Q(a, c, c')
 \begin{remark}
 We can again define co/wedges in this setting: if $\cate{B}=\C$ and in $P(a,b,b)\to Q(a,c,c)$ the functor $P$ is the constant functor on $d\in\D$, and $Q(a,c,c)=\bar Q(c,c)$ is mute in $a$, we get a wedge condition for $d\xto{..}Q$; dually we obtain a cowedge condition for $P(b,b)\to Q(a,b,b)\equiv d'$ for all $a,b,c$. 
 
-It's worth to notice that a extranatural transformation contains strictly more information than a dinatural, since in \adef\ref{extranatural} we are given arrows $F(b,b) \xto{\alpha_{bb'}} G(b',b')$ that form a cowedge in $b$ for each $b'$, and a wedge in $b'$ for all $b\in\B$.
+It's worth to notice that a extranatural transformation contains strictly more information than a dinatural, since in \adef\refbf{extranatural} we are given arrows $F(b,b) \xto{\alpha_{bb'}} G(b',b')$ that form a cowedge in $b$ for each $b'$, and a wedge in $b'$ for all $b\in\B$.
 \end{remark}
-Both notions give rise to the same notion of co/end, defined as a universal co/wedge for a bifunctor $F\colon \C^\opp\times\C\to \D$. The main reason we should prefer extranaturality is that being less general (see Exercise \textbf{1}.\refbf{ex1:extra_is_dinat}) they give rise to a fairly rich graphical calculus and behave better under composition(see Exercise \textbf{1}.\ref{ex1:compoextra}).
+Both notions give rise to the same notion of co/end, defined as a universal co/wedge for a bifunctor $F\colon \C^\opp\times\C\to \D$. The main reason we should prefer extranaturality is that being less general (see Exercise \textbf{1}.\refbf{ex1:extra_is_dinat}) they give rise to a fairly rich graphical calculus and behave better under composition(see Exercise \textbf{1}.\refbf{ex1:compoextra}).
 % \begin{quote}
 % \small 
 % %For the purposes of describing end/coend calculus, I wouldn't emphasize dinatural transformations so much as I would extranatural transformations. 

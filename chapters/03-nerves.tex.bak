@@ -137,7 +137,7 @@ R( X\times  Y) &\cong \textstyle R\left[ \left(\int^m X_m\cdot \Delta[m] \right 
 &\cong\textstyle \left(\int^mX_m\cdot\Delta^m\right)\times \left(\int^n Y_n\cdot \Delta^n \right )\\
 &\cong  R( X)\times R( Y)
 \end{align*}
-where we applied, respectively, the ninja Yoneda lemma \ref{ninjayo}, the colimit preservation property of $R$, its commutation with tensors, and its commutativity with finite products of representables.
+where we applied, respectively, the ninja Yoneda lemma \refbf{ninjayo}, the colimit preservation property of $R$, its commutation with tensors, and its commutativity with finite products of representables.
 \end{proof}
 \subsection{Examples of nerves and realizations}
 A natural factory of nerve\hyp{}realization contexts is \emph{homotopical algebra}, as such functors are often used to build Quillen equivalences between model categories. This is somewhat related to the fact that ``transfer theorem'' for model structures often apply to the well-behaved nerve functor.

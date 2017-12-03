@@ -4,18 +4,18 @@ The theory of weighted co/limits is a cornerstone of enriched category theory: i
 
 The material presented in this chapter comes from \cite[\textbf{II.7}]{riehl2014categorical}; even the notation is partly unchanged. A more classical reference for the subject is \cite{kelly1982basic,kelly1974review}: we do not make any attempt to recall the fundamental definitions of enriched category theory, heavily relying on these classical references, together with \cite{Bor2}.
 
-It's easy to motivate why co/limits are a fundamental entity of basic category theory. Nevertheless, this notion becomes too strict when one deals with enriched categories; the ``conical'' shape of a classical co/limit is not general enough to encompass the fairly rich variety of shapes in which co/limits in enriched categories arise (the reader has to keep in mind, here, that enriched categories constitute a model for higher category theory; there bare co/limits are ill\hyp{}behaved in several respects, and they must be replaced by their \emph{derived} counterpart); na\"ively speaking, \emph{one} of these shapes gives rise to the notion of a \emph{cone} for a functor $F\colon \cate{J}\to \C$, having as limit the well-known initial/terminal object in a suitable category of diagrams to/from $F$. The theory of weighted co/limits is based on the idea that in its full generality a co/limit takes \emph{two} arguments: the diagram $F$ \emph{of which} we want to compute the co/limit, a presheaf $W \in\widehat{\C}$ \emph{along which} we `weight' the co/limit: conical colimits arise when we choose the terminal presheaf that sends every object of $\C$ on the singleton of $\Sets$.
+It's easy to motivate why co/limits are a fundamental entity of basic category theory. Nevertheless, this notion becomes too strict when one deals with enriched categories; the ``conical'' shape of a classical co/limit is not general enough to encompass the fairly rich variety of shapes in which co/limits in enriched categories arise (the reader has to keep in mind, here, that enriched categories constitute a model for higher category theory; there bare co/limits are ill\hyp{}behaved in several respects, and they must be replaced by their \emph{derived} counterpart. The relation between the two concepts will become clearer along section \refbf{sec:higher}); na\"ively speaking, \emph{one} of these shapes gives rise to the notion of a \emph{cone} for a functor $F\colon \cate{J}\to \C$, having as limit the well-known initial/terminal object in a suitable category of diagrams to/from $F$. The theory of weighted co/limits is based on the idea that in its full generality a co/limit takes \emph{two} arguments: the diagram $F$ \emph{of which} we want to compute the co/limit, and a presheaf $W \in\widehat{\C}$ \emph{along which} we `weight' the co/limit: conical colimits arise when we choose the terminal presheaf that sends every object of $\C$ on the singleton of $\Sets$.
 
-We cannot touch but the surface of this intricate topic: the interested reader can consult \cite{2catlimits}, a presentation of unmatched lucidity filled with enlightening examples. We choose to follow a relativel more modern approach, for we are interested in translating the fundamentals about weighted co/limits into a \emph{kata} of co/end-fu. %To do this, we follow another really useful and well-written presentation of the theory, \emph{c'est \`a dire} \cite{riehl2014categorical}.\footnote{The reader is warned, now, that the present section results in a rough imitation of this source. Every error is obviously due to the author's misunderstanding.}
-\paragraph{\bf Local notation.} Throughout this section, \emph{weight} is a synonym of \emph{presheaf}; we call \emph{ordinary} a category which is enriched over $\Sets$ with its obvious cartesian closed structure.
+We cannot touch but the surface of this intricate topic: the interested reader can consult \cite{2catlimits}, a presentation of unmatched lucidity filled with enlightening examples. We choose to follow a relatively more modern approach, for we are interested in translating the fundamentals about weighted co/limits into a \emph{kata} of co/end-fu. Also, the focus in this section is not on proofs; this is why many arguments, not relying on category theory, are only briefly sketched.  %To do this, we follow another really useful and well-written presentation of the theory, \emph{c'est \`a dire} \cite{riehl2014categorical}.\footnote{The reader is warned, now, that the present section results in a rough imitation of this source. Every error is obviously due to the author's misunderstanding.}
+\paragraph{\bf Local notation.} Throughout this section, \emph{weight} is a synonym of \emph{presheaf}; we call \emph{ordinary} a category which is enriched over $\Sets$ with its obvious cartesian closed structure. All along the section, we assume that $\V$ denotes a \emph{B\'enabou cosmos}, \ie a symmetric monoidal closed, complete and cocomplete category which is the ``base'' for our enriched category theory.
 \subsection[The category of elements of a presheaf.]{A brief prelude: the category of elements of a presheaf.}
 \begin{definition}\label{eltsf}
-Let $W\colon \C\to \Sets$ be a functor; the \emph{category of elements} $\elts{\C}{W}$ of $W$ is the category having objects the pairs $(c\in\C, u\in Wc)$, and morphisms $(c,u)\to (c',v)$ those $f\in \C(c,c')$ such that $W(f)(u)=v$.
+Let $\C$ be an ordinary category, and let $W\colon \C\to \Sets$ be a functor; the \emph{category of elements} $\elts{\C}{W}$ of $W$ is the category having objects the pairs $(c\in\C, u\in Wc)$, and morphisms $(c,u)\to (c',v)$ those $f\in \C(c,c')$ such that $W(f)(u)=v$.
 \end{definition}
 \begin{notat}
 The somewhat exotic notation ``$\elts{\C}{W}$'' for the category of elements of $W$ is inspired by the wondrous paper \cite{Graya}. Other references call it $\int W$ (it is obvious why we can't stick to this more compact notation) or $\text{Elts}(W)$.
 \end{notat}
-\begin{proposition}
+\begin{proposition}\label{eltsf:char}
 The category $\elts{\C}{W}$ defined in \refbf{eltsf} can be equivalently characterized as each of the following:
 \begin{enumerate}[label=$\roman*$)]
 \item The category which results from the pullback 
@@ -26,7 +26,7 @@ The category $\elts{\C}{W}$ defined in \refbf{eltsf} can be equivalently charact
 }
 \]
 where $U\colon \Sets_*\to\Sets$ is the forgetful functor which sends a pointed set to its underlying set;
-\item The comma category \cite[]{} of the cospan $\{*\}\to \Sets \xot{W} \C$, where $\{*\}\to \Sets$ chooses the terminal object of $\Sets$;
+\item The comma category $(*\downarrow W)$ of the cospan $\{*\}\to \Sets \xot{W} \C$, where $\{*\}\to \Sets$ chooses the terminal object of $\Sets$;
 \item The opposite of the comma category $(\yon_{\C}\downarrow \lceil W\rceil)$, where $\lceil W\rceil\colon \{*\}\to [\C, \Sets]$ is the \emph{name} of the functor $W$, \ie the unique functor choosing the presheaf $W\in [\C, \Sets]$:
 \begin{center}
 \includegraphics[scale=1]{figures/fig5}
@@ -36,19 +36,13 @@ where $U\colon \Sets_*\to\Sets$ is the forgetful functor which sends a pointed s
 \begin{proof}
 The proof that these categories are all canonically isomorphic to $\elts{\C}{W}$ is an exercise in Yoneda lemma and universal properties that we leave to the reader.
 \end{proof}
-\begin{remark}
-There is a fourth characterization for the category of elements of a presheaf that couches it as a particular weighted colimit which, using the formalism exposed in this section, can be written as a coend. Example \refbf{elts-as-coend} below is a guided exercise in proving and clarifying this statement.
-\end{remark}
 \begin{proposition}\label{fibelem}
-The category of elements $\elts{\C}{W}$ of a functor $W\colon \C\to \Sets$ comes equipped with a canonical Grothendieck fibration \cite[\adef\refbf{}]{Bor2} to the domain of $W$, which we denote $\Sigma\colon \elts{\C}{W}\to \C$, defined forgetting the distinguished element $u\in Wc$. 
+The category of elements $\elts{\C}{W}$ of a functor $W\colon \C\to \Sets$ comes equipped with a canonical \emph{Grothendieck fibration}\footnote{Given a functor $p \colon \cate{E} \to \cate{B}$, an arrow $g \colon e' \to e$ in $\cate{E}$ is $p$-\emph{cartesian} if for any $g'\colon e'' \to e$ such that $pg' = pg \cdot h$ in $\cate{B}$, there is a unique lift $k$ of $h$ such that $g' = g \cdot h$. A functor $p :\cate{E} \to \cate{B}$ is a \emph{fibration} if each $f: b \to pe$ in $\cate{B}$ has a $p$-cartesian lift with codomain $e$.} to the domain of $W$, which we denote $\Sigma\colon \elts{\C}{W}\to \C$, defined forgetting the distinguished element $u\in Wc$. 
 \end{proposition}
 \begin{proof}
 We only have to prove that $\Sigma \colon \elts{\C}{W}\to \C$ is an isofibration; given an isomorphism $\phi\colon x\to c=\Sigma(c,u)$, we can define $v\in Wx$ to be $W(\phi^{-1})(u)$.
 \end{proof}
-\begin{notat}\label{cosmo}
-All along the present section, we assume that $\V$ denotes a \emph{B\'enabou cosmos} \cite[???]{cosmo-ref}, \ie a symmetric monoidal closed, complete and cocomplete category which is the ``base'' for our enriched category theory.
-\end{notat}
-\begin{remark}
+\begin{remark}[A less naive look at limits]
 Let $F\colon \cate{J}\to\C$ be a functor between small ordinary categories. The \emph{limit} $\varprojlim F$ of $F$ can be characterized as the representing object of a suitable presheaf: indeed, we have the natural isomorphism
 \[
 \C(c, \varprojlim F)\cong \Set^\cate{J}(*, \C(c,F(\firstblank)))
@@ -77,7 +71,7 @@ c\ar@/^1pc/[drr]^h\ar@/_1pc/[ddr]_k\ar@{.>}[dr] & \\
 }
 \]
 \end{example}
-The next result is the awaited characterization of weighted co/limits as co/ends:
+The next result is the awaited characterization of weighted co/limits as co/ends: we employ the same notation of \adef\refbf{weightdef}
 \begin{proposition}[Weighted co/limits as co/ends]\label{wlimcoends}
 When the end below and the $\Sets$-cotensor $(X, a)\mapsto a^X$ exist, we can express the weighted limit $\wlim{W}F$ for $F \colon \cate{J}\to \C$ as an end using the chain of isomorphisms
 \begin{align*}
@@ -94,14 +88,14 @@ and the uniqueness for a representing object. Indeed, the above string of natura
 \begin{example}
 Consider the particular case of two parallel functors $W,F\colon \C\to\Sets$; then we can easily see that $\wlim{W}F$ coincides with the set of natural transformations $W\Rightarrow F$, since the cotensor $Fc^{Wc}$ is precisely the set $\Sets(Wc, Fc)$.
 \end{example}
-\begin{example}
+\begin{example}[Kan extensions]
 The ninja Yoneda lemma \refbf{ninjayo}, rewritten in this notation, says that $\wlim{\C(c,\firstblank)}F\cong Fc$ (or, in case $F$ is contravariant, $\wlim{\C(\firstblank,c)}F\cong Fc$). This can be memorized as ``representably\hyp{}weighted co/limits are evaluation'' (see Remark \refbf{dirac} on the `Dirac delta') and suggests that \emph{Kan extensions} can be expressed as suitable weighted co/limits, and more precisely that they can be characterized as those weighted co/limits where the weight is a representable functor:
 \[
 \Ran_KF(\firstblank) \cong \int_{c\in\C} Fc^{\D(\firstblank, Kc)}\cong \wlim{\D(\firstblank, K\secondblank)}F.
 \]
 \end{example}
 The following Remark and Proposition constitute a central observation.
-\begin{remark}[\righteyes, The Grothendieck construction trivializes weights]
+\begin{remark}[\righteyes, The Grothendieck construction absorbs weights]
 Definition \refbf{weightdef} can be extended in the case $F\colon \C\to\A$ is a $\V$-enriched functor between $\V$-categories, and $W\colon \C\to\V$ is a $\V$-co/presheaf; this is the setting where the notion of a weighted co/limit acquires a supremacy over the ``classical'' one (where the weight is the terminal presheaf). When $\V=\Sets$, indeed, the \emph{Grothendieck construction} sending a (co)presheaf into its category of elements turns out to trivialize almost completely the theory of $\Sets$-weighted limits: as the following discussion shows, in such a situation every weighted limit can be expressed as a classical (we call them \emph{conical}, due to the shape of the weight) limit.
 \end{remark}
 \begin{proposition}[$\Sets$-weighted limits are limits]\label{elementi}
@@ -126,7 +120,7 @@ Obviously, when \emph{every} weighted limit exists in $\A$, we can prove that th
 \wlim{(\firstblank)}\,(=)\colon \big(\Sets^\C \big)^\opp\times \A^\C\longrightarrow \A.
 \] A number of useful corollaries of this fact:
 \begin{itemize}
-\item The unique, terminal natural transformation $W\to *$ induces a \emph{comparison arrow} between the weighted limit of any $F\colon\C\to\A$ and the classical (conical) limit: $\varprojlim F\to \wlim{W}F$. For example, the classical limit of the functor $f\colon \Delta[1]\to \A$ described in Example \refbf{frecc} consists of the object $a = \text{src}(f)$; hence the comparison arrow consists of the unique factorization of two copies of $\id_a$ along the kernel pair of $f$.
+\item The unique, terminal natural transformation $W\to *$ induces a \emph{comparison arrow} between the weighted limit of any $F\colon\C\to\A$ and the classical (conical) limit: $\varprojlim F\to \wlim{W}F$.\footnote{The existence of the map $\varprojlim F\to \wlim{W}F$ reinforces the intuition of $\wlim{W}F$ as a ``fattened up'' version of $\varprojlim F$. This intuition will become clearer along \refbf{sec:higher}.} As an example, the classical limit of the functor $f\colon \Delta[1]\to \A$ described in Example \refbf{frecc} consists of the object $a = \text{src}(f)$; hence the comparison arrow consists of the unique factorization of two copies of $\id_a$ along the kernel pair of $f$.
 \item The functor $\wlim{(\firstblank)}F$ is continuous, namely we can prove the suggestive isomorphism
 \[\textstyle\label{wlimcocont} 
 \wlim{\big(\varinjlim_J W_j\big)}F\cong \varprojlim_J \big(\wlim{W_j}F\big),
@@ -143,11 +137,9 @@ Ends can be computed as weighted limits: given $H\colon \C^\opp\times\C\to\D$ we
 \begin{remark}
 This characterization will turn out to be useful during our discussion of \emph{simplicially coherent} co/ends. See \refbf{cohcoend}.
 \end{remark}
+Weighted \emph{colimits} are discussed in Exercise \textbf{4}.\refbf{ex4:wcolims} and stem from a straightforward dualization process; we refer freely to both concepts from now on, leaving the details to the reader.
 \begin{remark}
-Weighted \emph{colimits} are discussed in Exercise \refbf{ex4:wcolims} and stem from a straightforward dualization process; we refer freely to both concepts from now on.
-\end{remark}
-\begin{remark}
-Aside from showing that ``weighted limits are the true enriched-categorical limits'', the above examples and the last characterization of ends as weighted limits are fundamental steps towards a sensible definition of \emph{enriched} ends: given a B\'enabou cosmos $\V$ (see Notation \refbf{cosmo}) and a $\V$-functor $H\colon \C^\opp\times\C\to\V$, we \emph{define} $\int_c H(c,c)$ to be the limit of $H$ weighted by $\C(\firstblank,=)\colon \C^\opp\boxtimes\C\to\V$ (see Definition \refbf{cosmuclosed} for the notation $\C\boxtimes \D$).
+Aside from showing that ``weighted limits are the true enriched-categorical limits'', the above examples and the last characterization of ends as weighted limits are fundamental steps towards a sensible definition of \emph{enriched} ends: given a B\'enabou cosmos $\V$ and a $\V$-functor $H\colon \C^\opp\times\C\to\V$, we \emph{define} $\int_c H(c,c)$ to be the limit of $H$ weighted by $\C(\firstblank,=)\colon \C^\opp\boxtimes\C\to\V$ (see Definition \refbf{cosmuclosed} for the notation $\C\boxtimes \D$).
 \end{remark}
 \begin{remark}\label{homcommuteswei}
 Let $F\colon \C \to \A, W\colon \C \to \V, U\colon \C^\opp\to \V$ be $\V$-functors and let $\A$ be $\V$-tensored. There are canonical isomorphisms
@@ -158,7 +150,7 @@ Let $F\colon \C \to \A, W\colon \C \to \V, U\colon \C^\opp\to \V$ be $\V$-functo
 This can be recorded in the motto ``the hom functor commutes with weighted limits'' (prove it as an exercise).
 \end{remark}
 \begin{example}[The cone construction as a weighted colimit]\label{cone-is-a-colim}
-Let $K$ be a ring, and $\V = \cate{Ch}(K)$ the category of chain complexes of $K$-modules. Considering $\V$ as a $\V$-category in the obvious way, we aim to prove that the \emph{mapping cone} $\text{C}(f) = X_*[1]\oplus Y_*$ of a chain map $f\colon X_*\to Y_*$ \cite[\textbf{1.5.1}]{Weibel1994} in $\V$ can be characterized as the weighted colimit $\wcolim{W}f$, where $f\colon \Delta[1]\to \V$ is the arrow $f$, and $W\colon \Delta[1]^\opp\to \V$ is the functor which chooses the map $S^1(K)_*\to D^2(K)_*$, where $S^n(K)_* = K[n]_*$ is the chain complex with the only term $K$ concentrated in degree $-n$, and $D^n(K)_*$ is the complex
+Let $K$ be a ring, and $\V = \cate{Ch}(K)$ the category of chain complexes of $K$-modules. Considering $\V$ as a $\V$-category in the obvious way, we aim to prove that the \emph{mapping cone} $\text{C}(f) = X_*[1]\oplus Y_*$ of a chain map $f\colon X_*\to Y_*$ \cite[\textbf{1.5.1}]{Weibel1994} in $\V$ can be characterized as the weighted colimit $\wcolim{W}f$, where $f\colon \Delta[1]\to \V$ is the arrow $f$, and $W\colon \Delta[1]^\opp\to \V$ is the functor which chooses the map $S^1(K)_*\to D^2(K)_*$, where $S^n(K)_* = K[n]_*$ is the chain complex with the only nonzero term $K$ concentrated in degree $-n$, and $D^n(K)_*$ is the complex
 \begin{equation*}
 \xymatrix{
 \cdots \ar[r]& 0 \ar[r] & K \ar@{=}[r] & K \ar[r] & 0 \ar[r] & \cdots,
@@ -189,6 +181,7 @@ This is a rather simple exercise in universality, given the maps
 }
 \]
 \end{example}
+In addition to those of \adef\refbf{eltsf:char} is a fourth characterization for the category of elements of a presheaf that couches it as a particular weighted colimit which, using the formalism exposed in this section, can be written as a coend. Example \refbf{elts-as-coend} below is a guided exercise in proving and clarifying this statement.
 \begin{example}[The category of elements of a presheaf]\label{elts-as-coend}
 The scope of this example is to prove that the category of elements of a functor $F\colon \C\to \Sets$ introduced in Def\@. \refbf{eltsf} can be characterized as a $\Cat$-weighted colimit: it is, in particular, the category isomorphic to the colimit
 \[
@@ -202,9 +195,9 @@ To prove this statement, we verify that $\elts{\C}{W}$ has the universal propert
 	\displaystyle \coprod_{f\colon a\to b} b/\C \times Wa \ar@<4pt>[r]^\alpha \ar@<-4pt>[r]_\beta & \displaystyle \coprod_{c\in\C} c/\C \times Wc
 }
 \]
-where $\alpha$ has components $\alpha_f \colon b/\C \times Wa \xto{1\times Ff} b/\C \times Wb$ sending $\left(\var{b}{x}, u\right)\mapsto \left( \var{b}{x}, F(f)u \right)$ and $\beta$ has components $\beta_f \colon b/\C \times Wa\xto{f^*\times Wa} a/\C \times Wa$ sending  $\left(\var{b}{x}, u\right)\mapsto \left( \left[\begin{smallmatrix} a &\xto{f} & b \\ &&\downarrow \\ && x \end{smallmatrix}\right], u \right)$.
+where $\alpha$ has components $\alpha_f \colon b/\C \times Wa \xto{1\times Ff} b/\C \times Wb$ sending $\left(\var{b}{x}, u\right)\mapsto \left( \var{b}{x}, F(f)u \right)$ and $\beta$ has components $\beta_f \colon b/\C \times Wa\xto{f^*\times Wa} a/\C \times Wa$ sending  $\left(\var{b}{x}, u\right)\mapsto \left( \left[\begin{smallmatrix} a &\xto{f} & b \\ &&\downarrow \\ && x \end{smallmatrix}\right], u \right)$. Of course, these maps are composed with the suitable coproduct injections.
 
-It's rather easy to define a functor
+It's rather easy now to define a functor
 \[
 \theta\colon \coprod_{a\in\C} a/\C\times Wa \longrightarrow \textstyle \elts{\C}{W}
 \]
@@ -217,7 +210,7 @@ Now notice that every map $\zeta'$ that coequalizes $(\alpha,\beta)$ has the pro
 It is now a routine verification to see that $\overline{\zeta}\circ\theta_a = \zeta_a$, and every other functor with this property must coincide with our $\overline{\zeta}$. This concludes the proof.
 \end{example}
 \begin{remark}\label{its.another.nerve}
-The careful reader may have noticed that all the above discussion gives a fifth presentation for the category of elements $\elts{\C}{W}$, as the image of $W$ under the Kan extension $\Lan_\yon J$: in the language of \S\refbf{section:nr}, $J\colon \C^\opp\to \Cat$ is the \textsc{nr}-context of the paradigm
+The reader may have noticed that all the above discussion gives a fifth presentation for the category of elements $\elts{\C}{W}$, as the image of $W$ under the Kan extension $\Lan_\yon J$: in the language of \S\refbf{section:nr}, $J\colon \C^\opp\to \Cat$ is the \textsc{nr}-context of the paradigm
 \[
 \xymatrix{
 \elts{\C}{\firstblank} \colon [\C, \Sets]  \ar@<4pt>[rr]&& \ar@<4pt>[ll] \Cat\colon N_J
@@ -291,13 +284,13 @@ and the homotopy colimit $\hocolim F$ of $F$ can be computed as the coend
 \begin{remark}
 These two universal objects are weighted co/limits in an evident way: it is possible to rewrite $\holim F\cong \wlim{N(J/\firstblank)}F$ and $\hocolim F\cong \wcolim{N(\firstblank/J)}F$.
 
-The idea behind this characterization is that the co/limit functor results as the weighted colimit over the terminal weight or in \cite{}'s notation $\{*,F\}$ and $*\otimes F$. When we want to pass to the homotopy invariant version of the $\wcolim{(\firstblank)}{(\secondblank)}$ bifunctor we can choose to `replace' the diagram part $F$ or the weight $W$ with a more homotopically\hyp{}well\hyp{}behaved diagrams $\hat F$ or $\tilde W$. Bousfield\hyp{}Kan formula arises precisely when we derive the weight: $N(j/J)$ and $N(J/j)$ are contractible categories, and they are linked to $N(*)$ by an homotopy equivalence induced by the terminal functor.
+The idea behind this characterization is that the co/limit functor results as the weighted colimit over the terminal weight. When we want to pass to the homotopy invariant version of the $\wcolim{(\firstblank)}{(\secondblank)}$ bifunctor we can choose to `replace' the diagram part $F$ or the weight $W$ with a more homotopically\hyp{}well\hyp{}behaved diagrams $\hat F$ or $\tilde W$. Bousfield\hyp{}Kan formula arises precisely when we derive the weight: $N(j/J)$ and $N(J/j)$ are contractible categories, and they are linked to $N(*)$ by an homotopy equivalence induced by the terminal functor.
 
-Then, the categories $N(J/\firstblank),N(\firstblank/J)$ must be thought as proper \emph{replacements} for the co/limit functor that correct its failure to preserve weak equivalences (see \cite{strom} for an extremely hands-on account of the theory of homotopy co/limits).
+Then, the categories $N(J/\firstblank),N(\firstblank/J)$ must be thought as proper \emph{replacements} for the co/limit functor that correct its failure to preserve weak equivalences (see \cite[\achap\textbf{6}]{strom2011modern} for an extremely hands-on account of the theory of homotopy co/limits in topology).
 \end{remark}
-\begin{example}
-The \emph{mapping cylinder} of $f \colon A \to B$ is the topological space obtained from $\big(A\times[0,1]\big) \coprod B$ from the smallest quotient that identifies $(f(a), (a, 0))$ for all $a \in A$ (compare this example with Example \refbf{cone-is-a-colim} and Exercise \refbf{ex:cone-again} below).
-\end{example}
+% \begin{example}
+% The \emph{mapping cylinder} of $f \colon A \to B$ is the topological space obtained from $\big(A\times[0,1]\big) \coprod B$ from the smallest quotient that identifies $(f(a), (a, 0))$ for all $a \in A$ (compare this example with Example \refbf{cone-is-a-colim} and Exercise \refbf{ex:cone-again} below).
+% \end{example}
 \begin{exerciseset}
 \begin{exercisepoints}
 \item Prove Equation (\refbf{wlimcocont}) using the characterization of $\wlim{W}F\cong \int_c Fc^{Wc}$, plus its universal property.
@@ -336,5 +329,6 @@ The \emph{mapping cylinder} of $f \colon A \to B$ is the topological space obtai
 	\item The Yoneda extension $\Lan_\yon W$ commutes with finite limits.
 \end{itemize}
 (hint: this is a rephrasing of \refbf{cofiltness})
+\item Show that the functor $\int_B : [\C^\opp\times\C,\D]\to \D$ has a left adjoint using Example \refbf{ends-are-weighted}.
 \end{exercisepoints}
 \end{exerciseset}
