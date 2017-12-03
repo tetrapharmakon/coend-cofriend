@@ -1,10 +1,10 @@
 \section{The nerve and realization paradigm.}\label{section:nr}
 \subsection{The classical nerve and realization.}
-The most fruitful application of the machinery of Kan extensions is the ``Kan construction'' for the \emph{realization} of simplicial sets. It is impossible to underestimate the value of this construction as a unification tool in algebra and algebraic topology; here, we briefly sketch this construction. 
+The most fruitful application of the machinery of Kan extensions is the ``Kan construction'' for the geometric \emph{realization} of simplicial sets as a topological space, or more precisely as a \textsc{cw}-complex. It is impossible to underestimate the value of this construction as a unification tool in algebra and algebraic topology; here, we briefly sketch this construction. 
 
-Consider the category $\bDelta$ of finite ordinals and monotone maps, as  defined in \cite{GoJ}, and the Yoneda embedding $\yon_\Delta \colon \bDelta \to \cate{sSet}$; we can define two  functors $\rho\colon \bDelta\to \cate{Top}$ and $i\colon \bDelta\to \Cat$ which ``represent'' every object $[n]\in\bDelta$ either as a topological space or as a small category:
+Consider the category $\bDelta$ of finite nonempty ordinals and monotone functions, as  defined in \cite{GoJ}, and let us consider the Yoneda embedding $\yon_\Delta \colon \bDelta \to [\bDelta^\opp,\Sets]=\cate{sSet}$; we can define two functors $\rho\colon \bDelta\to \cate{Top}$ and $i\colon \bDelta\to \Cat$ which ``represent'' every object $[n]\in\bDelta$ either as a topological space or as a small category:
 \begin{itemize}
-\item The category $i[n]$ is $\{0\to 1\to\dots\to n\}$ (there is a similar functor $P \colon \cate{Pos}\to \Cat$ regarding any poset $(P,\le)$ as the category $\cate P$ where the composition function is induced by the partial order relation $\le$: $i$ here is the restriction $P|_\Delta \colon \bDelta\subset \cate{Pos}$);
+\item The category $i[n]$ is $\{0\to 1\to\dots\to n\}$ (there is a similar functor $\cate{Pos}\to \Cat$ regarding any poset $(P,\le)$ as the category $\cate P$ where the composition function is induced by the partial order relation $\le$: $i$ here coincides with its restriction to $\bDelta\subset \cate{Pos}$);
 \item The topological space $\rho[n]$ is defined as the \emph{standard $n$-simplex} $\Delta^n$ embedded in $\mathbb{R}^{n+1}$, 
 \[
 \rho[n] = \Big\{(x_0, \dots, x_n) \in \mathbb{R}^{n+1} \mid 0\leq x_i \leq 1, \textstyle \sum_{i=0}^n x_i = 1 \Big\}.
@@ -13,11 +13,11 @@ Consider the category $\bDelta$ of finite ordinals and monotone maps, as  define
 In a few words, we are in the situation depicted by the following diagrams:
 \[
 \xymatrix{
-\bDelta \ar[r]^i\ar[d]_{\yon } & \Cat \\
+\bDelta \ar[r]^i\ar[d]_{\yon_{\bDelta}} & \Cat \\
 \cate{sSet}
 }\qquad 
 \xymatrix{
-\bDelta \ar[r]^\rho\ar[d]_{\yon }& \cate{Top}\\
+\bDelta \ar[r]^\rho\ar[d]_{\yon_{\bDelta}}& \cate{Top}\\
 \cate{sSet}
 }
 \]
@@ -25,60 +25,63 @@ The two functors $i,\rho$ can be (left) Kan-extended along the Yoneda embedding 
 
 We denote these adjunctions
 \[
-\Lan_\yon i\dashv N_i \text{ and } \Lan_\yon \rho\dashv N_\rho;
+\Lan_\yon i\dashv N_i \quad\text{ and }\quad \Lan_\yon \rho\dashv N_\rho;
 \] 
 these two right adjoint functors are called the \emph{nerves} associated to $i$ and $\rho$ respectively, and are defined, respectively, sending a category $\C$ to the simplicial set $N_i(\C)\colon [n]\mapsto \Cat(i[n],\C)$ (the \emph{classical nerve} of a category), and to the simplicial set $N_\rho(X)\colon[n]\mapsto \Top(\rho[n], X) = \Top(\Delta^n, X)$ (the \emph{singular complex} of a space $X$).\footnote{The name is motivated by the fact that if we consider the free-abelian group on $N_\rho(X)_n$, the various $C_n = \Z\cdot N_\rho(X)_n = \coprod_{ N_\rho(X)_n}\Z$ organize as a chain complex, whose homology is precisely the singular homology of $X$.}
 
 The left adjoints to $N_\rho$ and $N_i$ must be thought as ``realizations'' of a simplicial set as an object of $\Top$ or $\Cat$:
 \begin{itemize}
-\item The left Kan extension $\Lan_\yon \rho$ is the ``geometric'' realization $|X_\bullet|$ of a simplicial set $X_\bullet$, resulting as the coend
+\item The left Kan extension $\Lan_\yon \rho$ is called the \emph{geometric} realization $|X_\bullet|$ of a simplicial set $X_\bullet$, and it can be characterized as the coend
 \[
 \int^{n\in\bDelta} \Delta^n \times X_n
 \]
-which is equal to a suitable coequalizer in $\Top$. The shape of this object is fairly easy to motivate, keeping open any book in algebraic topology. The topological space $|X_\bullet|$ is obtained choosing a $n$-dimensional disk $\Delta^n$ (we are, of course, reasoning up to isomorphism!) for each $n$-simplex $x \in X_n$ and gluing these disks along their boundaries $\delta_i(\Delta^n)$ according to the degeneracy maps of $X_\bullet$. The resulting space is (almost by definition) a \textsc{cw}-complex (this means that  $|X_\bullet|$ has the topology induced by a sequential colimit of pushouts of spaces $X_{(0)} \to X_{(1)} \to\dots $).
-\item The left Kan extension$\Lan_\yon i$ is the ``categorical realization'' $\tau_1(X_\bullet)$ of a simplicial set $X_\bullet$, resulting as the coend
+which in turn coincides to a suitable coequalizer in $\Top$ in view of our \refbf{coends.as.colims} and \refbf{endsareeq} (and their duals). 
+
+The shape of this object is fairly easy to motivate, keeping open any book in algebraic topology: the topological space $|X_\bullet|$ is obtained choosing a $n$-dimensional disk $\Delta^n$ for each $n$-simplex $x \in X_n$ and gluing these disks along the boundaries $\delta_i(\Delta^n)$ according to the degeneracy maps of $X_\bullet$. The resulting space is (almost by definition) a \textsc{cw}-complex, because each standard $n$-simplex is homeomorphic to a closed disk: this means that  $|X_\bullet|$ has the topology induced by a sequential colimit of pushouts of spaces $X_{(0)} \to X_{(1)} \to\dots$
+\item The left Kan extension$\Lan_\yon i$ is the \emph{categorical} realization $\tau_1(X_\bullet)$ of a simplicial set $X_\bullet$, resulting as the coend
 \[
 \int^{n\in\bDelta} i[n] \times X_n.
 \]
-This is the category whose objects are 0-simplices of $X_\bullet$, arrows are 1-simplices, and the map $X_1\times_{X_0}X_1\to X_1$ obtained pulling back $d_0,d_1\colon X_1 \to X_0$ works as a composition law. The category $i[n]$ can be regarded as the ``universal composable string of $n$ arrows'', and the action of degeneracies (given by composition of contiguous arrows) induces a composition law for $n$-tuples of arrows under the quotient that defines the coend.
+This is the category whose objects are 0-simplices of $X_\bullet$, arrows are 1-simplices, and where composition is defined asking that $f,g\in X_1$ compose if there exists a 2-simplex $\sigma$ having 0-th face $g$ and 2-nd face $f$; identities are witnessed by degenerate simplices.% The category $i[n]$ can be regarded as the ``universal composable string of $n$ arrows'', and the action of degeneracies (given by composition of contiguous arrows) induces a composition law for $n$-tuples of arrows under the quotient that defines the coend.
 \end{itemize}
-We leave the reader think about why we only mention degeneracies here, leaving out faces (they are necessary, aren't they?), and we depict the geometric realization of $X_\bullet$ in figure~\refbf{fig:realiz}.
-\begin{center}
-\begin{figure}[h!]
-\begin{tikzpicture}[scale=.6]
-\fill (0,0)   circle (2pt) node (A) {};
-\fill (1,2)   circle (2pt) node (B) {};
-\fill (.5,-1) circle (2pt) node (C) {};
-\fill (3,0)   circle (2pt) node (D) {};
-\begin{scope}[xshift=5cm]
-\draw[thick] (0,0) node (A'2) {}-- (2,3.5) node (A2) {};
-\draw[thick] (1.15,0) node (B'2) {} -- (3.15,3.5) node (B2) {};
-\draw[thick] (45:.5) node (C'2) {} -- (45:2.5) node (C2) {};
-\draw[thick] (75:.5)  node (D'2) {} -- (75:4.5) node (D2) {};
-\end{scope}
-\begin{scope}[xshift=10cm]
-\draw[thick] (0,0) node (X1) {} -- (45:2.5) node (Y1) {} -- (2.5,0) node (Z1) {} -- cycle;
-\draw[thick] (3,3) node (X2) {} -- +(45:2.5) node (Y2) {} -- +(2.5,-1) node (Z2) {} -- cycle;
-\end{scope}
-\draw[->,dashed,black!90] (A) to [bend left] (A2);
-\draw[->,dashed,black!90] (C) to [bend left] (B'2);
-\draw[->,dashed,black!90] (B) to [bend left] (B2);
-%
-\draw[->,dashed,black!80] (A2) to [bend left] (Y2);
-\draw[->,dashed,black!80] (A'2) to [bend right=60] (Z2);
-\draw[->,dashed,black!80] (C'2) to [bend left] (Z1);
-\draw[->,dashed,black!80] (C2) to [bend left] (Y1);
-\draw[->,dashed,black!80] (B'2) to [bend left] (X1);
-\draw[->,dashed,black!80] (B2) to [bend left] (Y1);
-\end{tikzpicture}
-\label{fig:realiz}
-\caption{The construction of the geometric realization of $X \in \sSet$ as a sequential colimit of pushouts of disks.}
-\end{figure}
-\end{center}
+We leave the reader think about why we only mention degeneracies here, leaving out faces (they are necessary, aren't they?).%, and we depict the geometric realization of $X_\bullet$ in figure~\refbf{fig:realiz}.
+% \begin{center}
+% \begin{figure}[h!]
+% \begin{tikzpicture}[scale=.6]
+% \fill (0,0)   circle (2pt) node (A) {};
+% \fill (1,2)   circle (2pt) node (B) {};
+% \fill (.5,-1) circle (2pt) node (C) {};
+% \fill (3,0)   circle (2pt) node (D) {};
+% \begin{scope}[xshift=5cm]
+% \draw[thick] (0,0) node (A'2) {}-- (2,3.5) node (A2) {};
+% \draw[thick] (1.15,0) node (B'2) {} -- (3.15,3.5) node (B2) {};
+% \draw[thick] (45:.5) node (C'2) {} -- (45:2.5) node (C2) {};
+% \draw[thick] (75:.5)  node (D'2) {} -- (75:4.5) node (D2) {};
+% \end{scope}
+% \begin{scope}[xshift=10cm]
+% \draw[thick] (0,0) node (X1) {} -- (45:2.5) node (Y1) {} -- (2.5,0) node (Z1) {} -- cycle;
+% \draw[thick] (3,3) node (X2) {} -- +(45:2.5) node (Y2) {} -- +(2.5,-1) node (Z2) {} -- cycle;
+% \end{scope}
+% \draw[->,dashed,black!90] (A) to [bend left] (A2);
+% \draw[->,dashed,black!90] (C) to [bend left] (B'2);
+% \draw[->,dashed,black!90] (B) to [bend left] (B2);
+% %
+% \draw[->,dashed,black!80] (A2) to [bend left] (Y2);
+% \draw[->,dashed,black!80] (A'2) to [bend right=60] (Z2);
+% \draw[->,dashed,black!80] (C'2) to [bend left] (Z1);
+% \draw[->,dashed,black!80] (C2) to [bend left] (Y1);
+% \draw[->,dashed,black!80] (B'2) to [bend left] (X1);
+% \draw[->,dashed,black!80] (B2) to [bend left] (Y1);
+% \end{tikzpicture}
+% \label{fig:realiz}
+% \caption{The construction of the geometric realization of $X \in \sSet$ as a sequential colimit of pushouts of disks.}
+% \end{figure}
+% \end{center}
+
 It should now be evident that there is a pattern (we will call it the  ``nerve\hyp{}realization paradigm'') acting behind the scenes, and yielding the classical/singular nerve as particular cases of a general construction interpreted from time to time in different settings; unraveling this machinery with the power of co/end calculus is the scope of the following section.
 \subsection{Some famous realizations and their associated nerves.}
-Algebraic topology, representation theory, and more generally every setting where a ``well-behaved'' categorical structure is involved constitute natural factories for examples of the nerve\hyp{}realization paradigm. We now want to lay down organic foundations for a general theory and a general terminology allowing us to collect several examples (leaving outside many interesting others!) of nerve\hyp{}realizations pairs, obtained varying the domain category of ``geometric shapes'' or the category where this fundamental shapes are ``represented''. 
-\begin{definition}\label{nr-para}
+Algebraic topology, representation theory, and more generally every setting where a well\hyp{}behaved categorical structure is involved constitute natural factories for examples of the nerve\hyp{}realization paradigm. We now want to lay down an foundation for a theory and a terminology that allows us to collect readable and enlightening examples (leaving outside many interesting others!) of nerve\hyp{}realizations pairs, obtained varying the domain category of ``geometric shapes'' or the category where this fundamental shapes are realized. 
+\begin{definition}[context for nerve-realization]\label{nr-para}
 Any functor $\varphi\colon \C\to \D$ from a small category $\C$ to a (locally small) \emph{cocomplete} category $\D$ is called a \emph{nerve\hyp{}realization context} (a \textsc{nr}\emph{-context} for short).
 \end{definition}
 Given a nerve\hyp{}realization context $\varphi$, we can prove the following result:
@@ -95,10 +98,11 @@ The cocomplete category $\D$ is $\Sets$-tensored, and hence $\Lan_\yon \varphi$ 
 \end{align*}
 If we define $N_\varphi(d)$ to be $c\mapsto \D(\varphi c,d)$, this last set becomes canonically isomorphic to $[\C^\opp,\Set](P,N_\varphi(d))$.
 \end{proof}
+It is straightforward to recognize $N_\rho$ and $N_i$ here.
 \begin{remark}
-The nerve\hyp{}realization paradigm can be rewritten in the following equivalent form: there is an equivalence of categories, induced by the universal property of the Yoneda embedding, 
+The nerve\hyp{}realization paradigm can be rewritten in the following equivalent form: there is an equivalence of categories, induced by the universal property of the Yoneda embedding $\yon_\C : \C \to [\C^\opp,\Sets]$, 
 \[
-\Cat(\C, \D)\cong \text{RAdj}(\widehat{\C}, \D)
+\yon_\C^* : \Cat(\C, \D)\cong \text{RAdj}(\widehat{\C}, \D)
 \]
 whenever $\D$ is a cocomplete locally small category (in such a way that ``the category of nerve\hyp{}realization contexts'' is a high-sounding name for the category of functors $\Cat(\C, \D)$).
 \end{remark}

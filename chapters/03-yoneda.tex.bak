@@ -19,7 +19,7 @@ Th[e above one is] often called the \emph{Density Formula}, [\dots] or (by Austr
 \end{remark}
 Undoubtedly, there is a link between the above result and the Yoneda Lemma we all know: in fact, the proof heavily relies on the Yoneda isomorphism, and in enriched setting (see \cite[\S\textbf{I.5}]{dubuc1970kan}) the ninja Yoneda lemma, interpreted as a theorem about Kan extensions, is \emph{equivalent} to the one from the Northern hemisphere. 
 
-We must admit to feel somewhat unqualified to properly discuss the topic, as we live in the wrong hemisphere of the planet to claim any authority on it, and to be acquainted with the rather unique taste of Australian practitioners in choosing evocative (or obscure) terminology. Nevertheless, along the whole note, we keep the name ``ninja Yoneda Lemma'' as a (somewhat witty) nickname for the above isomorphisms.
+We must admit to feel somewhat unqualified to properly discuss the topic, as we live in the wrong hemisphere of the planet to claim any authority on it, and to be acquainted with the rather unique taste of Australian practicioners in choosing evocative (or obscure) terminology. Nevertheless, along the whole note, we keep the name ``ninja Yoneda Lemma'' as a (somewhat witty) nickname for the above isomorphisms.
 \begin{proof}
 We prove only case $(i)$, all the others being totally analogous. We put a certain emphasis on the style of this proof, as it is the first real new argument in this note and a paradigm of the calculus we are building. Consider the chain of isomorphisms
 \begin{align*}
